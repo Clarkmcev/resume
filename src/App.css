@@ -1,38 +1,155 @@
-.App {
-  text-align: center;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@layer components {
+  body {
+    @apply bg-first text-fourth text-xl
+  }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .selection {
+    @apply h-10 text-second w-24
+  }
+
+  .link {
+    @apply mx-2 hover:text-fourth transition-all duration-75 hover:-translate-y-2
+  }
+
+  .container {
+    @apply flex justify-between
+  }
+
+  .menu {
+    @apply my-10 text-third
+  }
+
+  .logo {
+    @apply mx-20 my-10
+  }
+
+  /* global scope */
+  h1 {
+    @apply text-4xl text-white
+  }
+
+  .number {
+    @apply text-third text-2xl mr-10
+  }
+
+  /* buttons */
+  .button1 {
+    @apply bg-second p-5 rounded-xl hover:bg-fourth duration-300 transition-all text-fourth hover:text-first border-third border-2
+  }
+
+  /* ref */
+  .ref {
+    @apply text-white hover:underline
+  }
+  
+
+  /* home page */
+  .content {
+    @apply mx-60 mt-28
+  }
+
+  .paragraph {
+    @apply my-10
+  }
+
+  .networks {
+    @apply flex flex-nowrap justify-center
+  }
+
+  .footer {
+    @apply ml-60 mt-20 text-third fixed bottom-0
+  }
+
+  /* about page  */
+  .about {  
+    @apply flex flex-wrap justify-between
+  }
+
+  .profileImg {
+    @apply rounded-sm mt-10 hover:bg-fourth transition-all duration-500 hover:translate-y-4 relative bottom-4
+  }
+
+  .stack {
+    @apply flex flex-wrap list-disc ml-5
+  }
+  
+  /* experience  */
+  .underline {
+    @apply w-14 h-1 bg-white relative bottom-6
+  }
+
+  .inner {
+    @apply mx-60
+  }
+
+  .position {
+    @apply mt-5
+  }
+
+  .task {
+    @apply ml-5
+  }
+
+  .company {
+    @apply text-white
+  }
+
+  .navbarxp {
+    @apply my-10
+  }
+
+  .xpitem {
+    @apply text-third hover:bg-second p-5 rounded-md
+  }
+
+  .date {
+    @apply text-third font-light mb-5
+  }
+
+  /* project */
+  .projects {
+    @apply mt-10 flex flex-wrap
+  }
+
+  .card {
+    @apply bg-second w-72 m-2 rounded-2xl relative hover:translate-y-2 h-fit border-r-4 border-b-4 border-third duration-500 drop-shadow-md transition-all
+  }
+
+  .logos {
+    @apply m-5 flex flex-wrap text-third
+  }
+
+  /* contact */
+  .contact {
+    @apply w-6/12
+  }
+
+  .box {
+    @apply w-8
+  }
+
+  .boxItem {
+    @apply  w-24 h-16 bg-red-500
+  }
+
+  /* text  */
+  .terminal {
+    @apply bg-black text-white p-5 h-fit w-fit
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+li {
+  list-style: none; 
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li::before {
+  color: white;  /*bullet color*/
+  content: "\2023"; /* bullet char */
+  position:absolute;
+  left:-1.2em;  /* indent of the bullet to the text */
 }
