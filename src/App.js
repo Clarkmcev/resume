@@ -11,6 +11,7 @@ import Noveo from "./components/Experience/Noveo.jsx";
 import Tilia from "./components/Experience/Tilia";
 import Actemium from "./components/Experience/Actemium";
 import Footer from "./components/Footer";
+import Introduction from "./components/Introduction";
 import { motion } from "framer-motion";
 
 function App() {
@@ -32,8 +33,9 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App m-0">
       <NavBar />
+      {/* <Introduction /> */}
       <Routes>
         <Route path="/">
           <Route index element={<HomePage />} />

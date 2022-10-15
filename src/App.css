@@ -12,11 +12,11 @@
   }
 
   .link {
-    @apply mx-2 hover:text-fourth transition-all duration-75 hover:-translate-y-2
+    @apply mx-2 hover:text-fourth transition-all duration-150 hover:-translate-y-1
   }
 
   .container {
-    @apply flex justify-between
+    @apply flex flex-wrap justify-between
   }
 
   .menu {
@@ -43,7 +43,7 @@
 
   /* ref */
   .ref {
-    @apply text-white hover:underline
+    @apply text-white
   }
   
 
@@ -123,6 +123,10 @@
     @apply m-5 flex flex-wrap text-third
   }
 
+  .tech {
+    @apply bg-fifth m-2 rounded-2xl p-2 text-first
+  }
+
   /* contact */
   .contact {
     @apply w-6/12
@@ -140,6 +144,11 @@
   .terminal {
     @apply bg-black text-white p-5 h-fit w-fit
   }
+
+  /* introduction  */
+  .intro {
+    @apply relative m-auto
+}
 }
 
 li {
@@ -152,4 +161,10 @@ li::before {
   content: "\2023"; /* bullet char */
   position:absolute;
   left:-1.2em;  /* indent of the bullet to the text */
+}
+
+line {
+  stroke-width: 10px;
+  stroke-linecap: round;
+  fill: transparent;
 }

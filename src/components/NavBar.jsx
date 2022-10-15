@@ -20,12 +20,12 @@ function NavBar() {
     }
   }
 
+
+
   return (
     <>
-    <div className="navbar">
-        <div className="container w-full">
+        <div className="container">
             <div className="logo">
-                
             </div>
             <div className="menu">
                 <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.15}}><NavLink className="link" to="home" style={({ isActive }) =>
@@ -45,7 +45,6 @@ function NavBar() {
             }>Contact</NavLink></motion.span>
             </div>
         </div>
-    </div>
     <Outlet/>
     </>
   )

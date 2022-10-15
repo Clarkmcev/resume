@@ -28,10 +28,10 @@ function Work() {
             <a href={project.url}>
             <div className="text-white mt-5 mx-5 font-bold">{project.name}</div>
             <div className="mx-5 text-fourth">[{project.shortDescription}]</div>
-            <div className="m-5">{project.longDescription}</div>
+            <div className="m-5 font-thin">{project.longDescription}</div>
             <div className="m-5">
             {project.stack.map((tech) => {
-              return (<span className="font-light text-third text-sm">{tech} </span>)
+              return (<span className=" text-third text-sm tech leading-10">{tech} </span>)
             })}
             </div>
               <div className="logos">
