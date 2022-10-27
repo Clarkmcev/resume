@@ -21,8 +21,8 @@ function App() {
     },
     visible: {
       y: 0,
-      position: "absolute",
       bottom: 0,
+      position: "absolute",
 
       transition: {
         delay: 1,
@@ -33,7 +33,7 @@ function App() {
   };
 
   return (
-    <div className="App m-0">
+    <div className="App">
       <NavBar />
       {/* <Introduction /> */}
       <Routes>
@@ -59,7 +59,12 @@ function App() {
           }}
         />
       </Routes>
-      <motion.div variants={boxFooter} animate="visible" initial="hidden">
+      <motion.div
+        variants={boxFooter}
+        animate="visible"
+        initial="hidden"
+        className="bg-first"
+      >
         <Footer />
       </motion.div>
     </div>

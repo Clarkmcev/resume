@@ -45,7 +45,7 @@
   .ref {
     @apply text-white
   }
-  
+
 
   /* home page */
   .content {
@@ -61,22 +61,22 @@
   }
 
   .footer {
-    @apply ml-60 mt-20 text-third fixed bottom-0
+    @apply text-third ml-56
   }
 
   /* about page  */
-  .about {  
+  .about {
     @apply flex flex-wrap justify-between
   }
 
   .profileImg {
-    @apply rounded-sm mt-10 hover:bg-fourth transition-all duration-500 hover:translate-y-4 relative bottom-4
+    @apply rounded-3xl mt-10 hover:bg-fourth transition-all duration-500 hover:translate-y-4 relative bottom-4
   }
 
   .stack {
     @apply flex flex-wrap list-disc ml-5
   }
-  
+
   /* experience  */
   .underline {
     @apply w-14 h-1 bg-white relative bottom-6
@@ -123,9 +123,6 @@
     @apply m-5 flex flex-wrap text-third
   }
 
-  .tech {
-    @apply bg-fifth m-2 rounded-2xl p-2 text-first
-  }
 
   /* contact */
   .contact {
@@ -137,7 +134,7 @@
   }
 
   .boxItem {
-    @apply  w-24 h-16 bg-red-500
+    @apply w-24 h-16 bg-red-500
   }
 
   /* text  */
@@ -148,19 +145,22 @@
   /* introduction  */
   .intro {
     @apply relative m-auto
-}
+  }
 }
 
 li {
-  list-style: none; 
+  list-style: none;
   position: relative;
 }
 
 li::before {
-  color: white;  /*bullet color*/
-  content: "\2023"; /* bullet char */
-  position:absolute;
-  left:-1.2em;  /* indent of the bullet to the text */
+  color: white;
+  /*bullet color*/
+  content: "\2023";
+  /* bullet char */
+  position: absolute;
+  left: -1.2em;
+  /* indent of the bullet to the text */
 }
 
 line {

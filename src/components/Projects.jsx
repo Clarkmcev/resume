@@ -31,7 +31,7 @@ function Work() {
             <div className="m-5 font-thin">{project.longDescription}</div>
             <div className="m-5">
             {project.stack.map((tech) => {
-              return (<span className=" text-third text-sm tech leading-10">{tech} </span>)
+              return (<span className=" text-third text-sm tech leading-10">{tech}  </span>)
             })}
             </div>
               <div className="logos">

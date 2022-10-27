@@ -1,5 +1,5 @@
-import React, { useState, useRef, useLayoutEffect } from 'react'
-import { NavLink, useNavigate,  Outlet } from 'react-router-dom'
+import React, { useLayoutEffect } from 'react'
+import { NavLink,  Outlet } from 'react-router-dom'
 import { motion } from "framer-motion";
 
 
@@ -19,8 +19,6 @@ function NavBar() {
       opacity: 1,
     }
   }
-
-
 
   return (
     <>
