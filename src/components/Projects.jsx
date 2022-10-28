@@ -27,7 +27,7 @@ function Work() {
           className="card">
             <a href={project.url}>
             <div className="text-white mt-5 mx-5 font-bold">{project.name}</div>
-            <div className="mx-5 text-fourth">[{project.shortDescription}]</div>
+            <div className="mx-5 text-fourth text-base">[{project.shortDescription}]</div>
             <div className="m-5 font-thin">{project.longDescription}</div>
             <div className="m-5">
             {project.stack.map((tech) => {

@@ -61,7 +61,7 @@
   }
 
   .footer {
-    @apply text-third ml-56
+    @apply text-third fixed left-0 bottom-0 w-full text-center
   }
 
   /* about page  */

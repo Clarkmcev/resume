@@ -26,6 +26,15 @@ let projects = [
     url: "https://vitalcool.netlify.app/",
     repo: "https://github.com/Clarkmcev/vitalcool-client",
   },
+  {
+    name: "Ghibli's Library",
+    shortDescription: "Movies Catalog",
+    longDescription:
+      "All the movies made by Studio Ghibli gathered in a website via an API.",
+    stack: ["JavaScript", "React", "Tailwind CSS"],
+    url: "https://ghibli-library.vercel.app/",
+    repo: "https://github.com/Clarkmcev/ghibli-library",
+  },
 ];
 
 export default projects;

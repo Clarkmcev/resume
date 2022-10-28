@@ -22,7 +22,7 @@ function App() {
     visible: {
       y: 0,
       bottom: 0,
-      position: "absolute",
+      // position: "absolute",
 
       transition: {
         delay: 1,
@@ -33,41 +33,43 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <NavBar />
-      {/* <Introduction /> */}
-      <Routes>
-        <Route path="/">
-          <Route index element={<HomePage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/experience" element={<Experience />}>
-            <Route index element={<Sg />} />
-            <Route path="/experience/sg" element={<Sg />} />
-            <Route path="/experience/noveo" element={<Noveo />} />
-            <Route path="/experience/tilia" element={<Tilia />} />
-            <Route path="/experience/actemium" element={<Actemium />} />
+    <>
+      <div className="App">
+        <NavBar />
+        {/* <Introduction /> */}
+        <Routes>
+          <Route path="/">
+            <Route index element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/experience" element={<Experience />}>
+              <Route index element={<Sg />} />
+              <Route path="/experience/sg" element={<Sg />} />
+              <Route path="/experience/noveo" element={<Noveo />} />
+              <Route path="/experience/tilia" element={<Tilia />} />
+              <Route path="/experience/actemium" element={<Actemium />} />
+            </Route>
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
           </Route>
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Route>
-        <Route
-          path="/about/ironhack"
-          component={() => {
-            window.location.href = "https://www.ironhack.com/";
-            return null;
-          }}
-        />
-      </Routes>
-      <motion.div
+          <Route
+            path="/about/ironhack"
+            component={() => {
+              window.location.href = "https://www.ironhack.com/";
+              return null;
+            }}
+          />
+        </Routes>
+      </div>
+      {/* <motion.div
         variants={boxFooter}
         animate="visible"
         initial="hidden"
         className="bg-first"
-      >
-        <Footer />
-      </motion.div>
-    </div>
+      > */}
+      <Footer />
+      {/* </motion.div> */}
+    </>
   );
 }
 
