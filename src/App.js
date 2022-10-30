@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-      <div className="App">
+      <div className="App relative">
         <NavBar />
         <Routes>
           <Route path="/">
@@ -55,15 +55,15 @@ function App() {
             }}
           />
         </Routes>
-        <motion.div
-          variants={boxFooter}
-          animate="visible"
-          initial="hidden"
-          className="bg-first text-third w-fit fixed text-center"
-        >
-          <Footer />
-        </motion.div>
       </div>
+      <motion.div
+        variants={boxFooter}
+        animate="visible"
+        initial="hidden"
+        className="bg-first text-third w-fit fixed bottom-0 text-center"
+      >
+        <Footer />
+      </motion.div>
     </>
   );
 }

@@ -5,7 +5,7 @@ import { SiCodewars } from 'react-icons/si';
 function Footer() {
   return (
     <>
-    <div className="">
+    <div className="text-third fixed left-0 bottom-0 w-full text-center bg-first p-5">
         <div className="networks">
         <a href="https://github.com/Clarkmcev"><BsGithub className="link"/></a>
         <a href="https://www.linkedin.com/in/clark-mcevoy-904378150/"><BsLinkedin className="link"/></a>
@@ -14,7 +14,7 @@ function Footer() {
         <a href="instagram"><BsInstagram className="link"/></a>
         <a href="https://www.codewars.com/users/ClarkMC"><SiCodewars className="link"/></a>
     </div>
-    <div className="m-5 relative bottom-3">mcevoyclark@gmail.com</div>
+    <div className="relative">mcevoyclark@gmail.com</div>
     </div>
     </>
   )
