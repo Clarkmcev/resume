@@ -4,7 +4,7 @@
 
 @layer components {
   body {
-    @apply bg-first text-fourth text-xl
+    @apply bg-first text-fourth text-base flex flex-col justify-between min-h-full m-0
   }
 
   .selection {
@@ -16,11 +16,11 @@
   }
 
   .container {
-    @apply flex flex-wrap justify-between
+    @apply flex justify-between max-w-7xl mx-auto items-center
   }
 
   .menu {
-    @apply my-10 text-third
+    @apply my-10 text-third items-center
   }
 
   .logo {
@@ -49,28 +49,15 @@
 
   /* home page */
   .content {
-    @apply mx-60 mt-28
+    @apply max-w-7xl mx-auto p-10
   }
 
   .paragraph {
-    @apply my-10
+    @apply py-10
   }
 
   .networks {
     @apply flex flex-nowrap justify-center
-  }
-
-  .footer {
-    @apply text-third fixed left-0 bottom-0 w-full text-center
-  }
-
-  /* about page  */
-  .about {
-    @apply flex flex-wrap justify-between
-  }
-
-  .profileImg {
-    @apply rounded-3xl mt-10 hover:bg-fourth transition-all duration-500 hover:translate-y-4 relative bottom-4
   }
 
   .stack {
@@ -83,7 +70,7 @@
   }
 
   .inner {
-    @apply mx-60
+    @apply mx-auto
   }
 
   .position {
@@ -116,17 +103,11 @@
   }
 
   .card {
-    @apply bg-second w-72 m-2 rounded-2xl relative hover:translate-y-2 h-fit border-r-4 border-b-4 border-third duration-500 drop-shadow-md transition-all
+    @apply bg-second w-72 m-2 rounded-2xl relative hover:-translate-y-2 h-fit border-r-4 border-b-4 border-third duration-500 drop-shadow-md transition-all
   }
 
   .logos {
     @apply m-5 flex flex-wrap text-third
-  }
-
-
-  /* contact */
-  .contact {
-    @apply w-6/12
   }
 
   .box {
@@ -167,4 +148,8 @@ line {
   stroke-width: 10px;
   stroke-linecap: round;
   fill: transparent;
+}
+
+html {
+  height: 100%
 }

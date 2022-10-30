@@ -5,7 +5,7 @@ import { SiCodewars } from 'react-icons/si';
 function Footer() {
   return (
     <>
-    <div className="footer">
+    <div className="">
         <div className="networks">
         <a href="https://github.com/Clarkmcev"><BsGithub className="link"/></a>
         <a href="https://www.linkedin.com/in/clark-mcevoy-904378150/"><BsLinkedin className="link"/></a>

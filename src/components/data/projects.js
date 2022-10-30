@@ -31,9 +31,17 @@ let projects = [
     shortDescription: "Movies Catalog",
     longDescription:
       "All the movies made by Studio Ghibli gathered in a website via an API.",
-    stack: ["JavaScript", "React", "Tailwind CSS"],
+    stack: ["JavaScript", "React", "TailwindCSS"],
     url: "https://ghibli-library.vercel.app/",
     repo: "https://github.com/Clarkmcev/ghibli-library",
+  },
+  {
+    name: "Blogger",
+    shortDescription: "Blog",
+    longDescription: "A website to share, read and learn new things.",
+    stack: ["Next", "Sanity", "Typescript", "TailwindCSS"],
+    url: "https://blogger-izmepyhci-clarkmcev.vercel.app/",
+    repo: "https://github.com/Clarkmcev/blogger",
   },
 ];
 

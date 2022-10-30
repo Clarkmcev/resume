@@ -1,9 +1,21 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 import { NavLink,  Outlet } from 'react-router-dom'
 import { motion } from "framer-motion";
+import { useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { useEffect } from 'react';
+import {
+  useWindowSize,
+  useWindowWidth,
+  useWindowHeight,
+} from '@react-hook/window-size'
 
 
 function NavBar() {
+  const [showNavBar, setShowNavBar] = useState(false)
+  const [width, setWidth] = useState(0);
+  const ref = useRef(null);
+
   let activeStyle = {
     color: "#77ABB7",
     textDecoration: 'none'
@@ -20,29 +32,70 @@ function NavBar() {
     }
   }
 
+  useLayoutEffect(() => {
+    setWidth(ref.current.offsetWidth);
+  }, [width])
+
+  useEffect(() => {
+    function handleResize() {
+      console.log('resized to: ', window.innerWidth, 'x', window.innerHeight, showNavBar)
+      setWidth(window.innerWidth)
+
+      if (window.innerWidth > 640) {
+        setShowNavBar(false)
+      }
+    
+}
+    window.addEventListener('resize', handleResize)
+  },[])
+
   return (
     <>
-        <div className="container">
+        <div ref={ref} className="container">
             <div className="logo">
+              
             </div>
-            <div className="menu">
-                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.15}}><NavLink className="link" to="home" style={({ isActive }) =>
+
+            <button className={showNavBar ? 'text-third' : 'text-second'} onClick={()=>setShowNavBar(!showNavBar)}>
+                <GiHamburgerMenu size="50px" className="text-second m-10 items-center hover:text-third cursor-pointer sm:hidden focus:bg-third" />
+            </button>
+            <div className="hidden sm:inline-block my-10 text-third items-center">
+                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.15}}><NavLink className="link p-3  hover:bg-second rounded-lg" to="home" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>Home</NavLink></motion.span>
-                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.30}}><NavLink className="link" to="about" style={({ isActive }) =>
+                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.30}}><NavLink className="link p-3 hover:bg-second rounded-lg" to="about" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>About</NavLink></motion.span>
-                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.45}}><NavLink className="link" to="experience" style={({ isActive }) =>
+                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.45}}><NavLink className="link p-3 hover:bg-second rounded-lg" to="experience" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>Experience</NavLink></motion.span>
-                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.60}}><NavLink className="link" to="projects" style={({ isActive }) =>
+                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.60}}><NavLink className="link p-3 hover:bg-second rounded-lg" to="projects" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>Projects</NavLink></motion.span>
-                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:75}}><NavLink className="link" to="contact" style={({ isActive }) =>
+                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:75}}><NavLink className="link p-3 hover:bg-second rounded-lg" to="contact" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>Contact</NavLink></motion.span>
             </div>
         </div>
+        {showNavBar &&
+            <div className="flex justify-between" >
+              <div></div>
+              <div className="flex flex-col space-y-2">
+                <NavLink className="link hover:bg-second p-3 rounded-lg" to="home" style={({ isActive }) =>
+                isActive ? activeStyle : { textDecoration: 'none' }
+              }>Home</NavLink>
+                <NavLink className="link hover:bg-second p-3 rounded-lg" to="about" style={({ isActive }) =>
+                isActive ? activeStyle : { textDecoration: 'none' }
+              }>About</NavLink>
+              <NavLink className="link hover:bg-second p-3 rounded-lg" to="experience" style={({ isActive }) =>
+                isActive ? activeStyle : { textDecoration: 'none' }
+              }>Experience</NavLink>
+              <NavLink className="link hover:bg-second p-3 rounded-lg" to="contact" style={({ isActive }) =>
+                isActive ? activeStyle : { textDecoration: 'none' }
+              }>Contact</NavLink>
+              </div>
+            </div>}
+
     <Outlet/>
     </>
   )

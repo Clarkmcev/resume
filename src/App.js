@@ -11,7 +11,6 @@ import Noveo from "./components/Experience/Noveo.jsx";
 import Tilia from "./components/Experience/Tilia";
 import Actemium from "./components/Experience/Actemium";
 import Footer from "./components/Footer";
-import Introduction from "./components/Introduction";
 import { motion } from "framer-motion";
 
 function App() {
@@ -21,9 +20,6 @@ function App() {
     },
     visible: {
       y: 0,
-      bottom: 0,
-      // position: "absolute",
-
       transition: {
         delay: 1,
         delayChildren: 0.2,
@@ -36,7 +32,6 @@ function App() {
     <>
       <div className="App">
         <NavBar />
-        {/* <Introduction /> */}
         <Routes>
           <Route path="/">
             <Route index element={<HomePage />} />
@@ -60,15 +55,15 @@ function App() {
             }}
           />
         </Routes>
+        <motion.div
+          variants={boxFooter}
+          animate="visible"
+          initial="hidden"
+          className="bg-first text-third w-fit fixed text-center"
+        >
+          <Footer />
+        </motion.div>
       </div>
-      {/* <motion.div
-        variants={boxFooter}
-        animate="visible"
-        initial="hidden"
-        className="bg-first"
-      > */}
-      <Footer />
-      {/* </motion.div> */}
     </>
   );
 }

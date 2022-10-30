@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 function Actemium() {
   return (
-    <>
     <motion.div 
     initial="hidden"
     animate="visible"
@@ -18,7 +17,6 @@ function Actemium() {
         <li className="task">Participated in some development of new features of their website</li>
       </ul>
     </motion.div>
-    </>
   )
 }
 

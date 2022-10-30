@@ -35,13 +35,13 @@ function Experience() {
             }>Actemium</NavLink>
         </motion.div>
         <motion.div animate={{x:selectedTab, scaleX: 1}}className="underline" layoutId="underline" />
-      </div>
-      <motion.div
+        <motion.div
         initial="hidden"
         animate="visible"
         variants={motion1}>
       <Outlet/>
       </motion.div>
+      </div>
     </>
   )
 }
