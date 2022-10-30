@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-      <div className="App relative">
+      <div className="App">
         <NavBar />
         <Routes>
           <Route path="/">
@@ -60,7 +60,7 @@ function App() {
         variants={boxFooter}
         animate="visible"
         initial="hidden"
-        className="bg-first text-third w-fit fixed bottom-0 text-center"
+        className="bg-first text-third"
       >
         <Footer />
       </motion.div>

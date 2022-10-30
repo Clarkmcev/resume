@@ -12,7 +12,7 @@
   }
 
   .link {
-    @apply mx-2 hover:text-fourth transition-all duration-150 hover:-translate-y-1
+    @apply hover:text-fourth transition-all duration-150 hover:-translate-y-1
   }
 
   .container {
@@ -57,7 +57,7 @@
   }
 
   .networks {
-    @apply flex flex-nowrap justify-center
+    @apply flex
   }
 
   .stack {
