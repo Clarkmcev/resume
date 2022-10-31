@@ -55,15 +55,16 @@ function App() {
             }}
           />
         </Routes>
+        {/* <div className="footer"></div> */}
+        <motion.div
+          variants={boxFooter}
+          animate="visible"
+          initial="hidden"
+          className="bg-first text-third footer"
+        >
+          <Footer />
+        </motion.div>
       </div>
-      <motion.div
-        variants={boxFooter}
-        animate="visible"
-        initial="hidden"
-        className="bg-first text-third"
-      >
-        <Footer />
-      </motion.div>
     </>
   );
 }
