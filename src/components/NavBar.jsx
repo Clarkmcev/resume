@@ -4,11 +4,6 @@ import { motion } from "framer-motion";
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useEffect } from 'react';
-import {
-  useWindowSize,
-  useWindowWidth,
-  useWindowHeight,
-} from '@react-hook/window-size'
 
 
 function NavBar() {
