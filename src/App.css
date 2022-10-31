@@ -107,7 +107,7 @@
   }
 
   .logos {
-    @apply m-5 flex flex-wrap text-third
+    @apply m-5 flex space-x-4 text-third
   }
 
   .box {
