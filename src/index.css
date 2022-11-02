@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    position: relative;
-}
-
 .footer {
     position: absolute;
     bottom: 0;
@@ -13,3 +9,23 @@ body {
     right:0;
     text-align: center;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+@font-face {
+    font-family: "bit";
+    src: url("../public/fonts/Minecraftia-Regular.ttf");
+  }
+
+@font-face {
+font-family: "pixel";
+src: url("../public/fonts/I-pixel-u.ttf");
+}
+
+@font-face {
+    font-family: "pixel";
+    src: url("../public/fonts/Minecraft.ttf");
+    }
+    

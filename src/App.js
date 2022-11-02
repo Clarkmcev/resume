@@ -10,60 +10,50 @@ import Sg from "./components/Experience/Sg";
 import Noveo from "./components/Experience/Noveo.jsx";
 import Tilia from "./components/Experience/Tilia";
 import Actemium from "./components/Experience/Actemium";
-import Footer from "./components/Footer";
-import { motion } from "framer-motion";
+import SideBar from "./components/SideBar";
+import ContactBar from "./components/ContactBar";
 
 function App() {
-  const boxFooter = {
-    hidden: {
-      y: "100vh",
-    },
-    visible: {
-      y: 0,
-      transition: {
-        delay: 1,
-        delayChildren: 0.2,
-        bounce: 0.4,
-      },
-    },
-  };
-
   return (
     <>
-      <div className="App">
+      <div className="max-h-screen overflow-hidden">
         <NavBar />
-        <Routes>
-          <Route path="/">
-            <Route index element={<HomePage />} />
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/experience" element={<Experience />}>
-              <Route index element={<Sg />} />
-              <Route path="/experience/sg" element={<Sg />} />
-              <Route path="/experience/noveo" element={<Noveo />} />
-              <Route path="/experience/tilia" element={<Tilia />} />
-              <Route path="/experience/actemium" element={<Actemium />} />
-            </Route>
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-          </Route>
-          <Route
-            path="/about/ironhack"
-            component={() => {
-              window.location.href = "https://www.ironhack.com/";
-              return null;
-            }}
-          />
-        </Routes>
-        {/* <div className="footer"></div> */}
-        <motion.div
-          variants={boxFooter}
-          animate="visible"
-          initial="hidden"
-          className="bg-first text-third footer"
-        >
-          <Footer />
-        </motion.div>
+
+        <div className="grid grid-cols-10 gap-1">
+          <div className="w-full h-screen col-span-1 p-20 rounded-2xl">
+            <div className="bg-first text-third h-full py-10">
+              <SideBar />
+            </div>
+          </div>
+          <div className="col-span-8 w-full h-screen0 p-20 rounded-2xl overflow-scroll max-h-screen ">
+            <Routes>
+              <Route path="/">
+                <Route index element={<HomePage />} />
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/experience" element={<Experience />}>
+                  <Route index element={<Sg />} />
+                  <Route path="/experience/sg" element={<Sg />} />
+                  <Route path="/experience/noveo" element={<Noveo />} />
+                  <Route path="/experience/tilia" element={<Tilia />} />
+                  <Route path="/experience/actemium" element={<Actemium />} />
+                </Route>
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+              </Route>
+              <Route
+                path="/about/ironhack"
+                component={() => {
+                  window.location.href = "https://www.ironhack.com/";
+                  return null;
+                }}
+              />
+            </Routes>
+          </div>
+          {/* <div className="col-span-1 w-full h-screen p-20 rounded-2xl ">
+            <ContactBar />
+          </div> */}
+        </div>
       </div>
     </>
   );

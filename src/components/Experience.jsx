@@ -24,13 +24,13 @@ function Experience() {
           <NavLink className="xpitem" onClick={()=>{setSelectedTab(0)}} to="sg" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>Société Générale</NavLink>
-          <NavLink className="xpitem" onClick={()=>{setSelectedTab(195)}} to="noveo" style={({ isActive }) =>
+          <NavLink className="xpitem" onClick={()=>{setSelectedTab(180)}} to="noveo" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>Noveo Group</NavLink>
-          <NavLink className="xpitem" onClick={()=>{setSelectedTab(355)}} to="tilia" style={({ isActive }) =>
+          <NavLink className="xpitem" onClick={()=>{setSelectedTab(300)}} to="tilia" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>Tilia</NavLink>
-          <NavLink className="xpitem" onClick={()=>{setSelectedTab(430)}} to="actemium" style={({ isActive }) =>
+          <NavLink className="xpitem" onClick={()=>{setSelectedTab(390)}} to="actemium" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>Actemium</NavLink>
         </motion.div>

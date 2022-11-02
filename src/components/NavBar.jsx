@@ -12,7 +12,7 @@ function NavBar() {
   const ref = useRef(null);
 
   let activeStyle = {
-    color: "#77ABB7",
+    color: "#ffffff",
     textDecoration: 'none'
   };
 
@@ -21,6 +21,16 @@ function NavBar() {
       position: "relative",
       opacity: 0,
       x: "-100vh",
+    },
+    visible: {
+      opacity: 1,
+      y: 0
+    }
+  }
+
+  const boxLogo= {
+    hidden: {
+      opacity: 0,
     },
     visible: {
       opacity: 1,
@@ -47,29 +57,26 @@ function NavBar() {
   return (
     <>
         <div ref={ref} className="container">
-            <div className="logo">
-              
-            </div>
+            <motion.div className="font-pixel text-3xl text-fifth" variants={boxLogo} initial="hidden" animate="visible" transition={{delay:0.15}}>
+              <div>MC</div>
+            </motion.div>
 
             <button className={showNavBar ? 'text-third' : 'text-second'} onClick={()=>setShowNavBar(!showNavBar)}>
                 <GiHamburgerMenu size="50px" className="text-second m-10 items-center hover:text-third cursor-pointer sm:hidden focus:bg-third" />
             </button>
             <div className="hidden sm:inline-block my-10 text-third items-center">
-                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.15}}><NavLink className="link p-3  hover:bg-second rounded-lg" to="home" style={({ isActive }) =>
+                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.15}}><span className="font-pixel text-sm text-fifth">01.</span><NavLink className="linkNavbar p-3 rounded-lg text-lg" to="home" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>Home</NavLink></motion.span>
-                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.30}}><NavLink className="link p-3 hover:bg-second rounded-lg" to="about" style={({ isActive }) =>
+                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.30}}><span className="font-pixel text-sm text-fifth">02.</span><NavLink className="linkNavbar p-3 rounded-lg text-lg" to="about" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>About</NavLink></motion.span>
-                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.45}}><NavLink className="link p-3 hover:bg-second rounded-lg" to="experience" style={({ isActive }) =>
+                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.45}}><span className="font-pixel text-sm text-fifth">03.</span><NavLink className="linkNavbar p-3 rounded-lg text-lg" to="experience" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>Experience</NavLink></motion.span>
-                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.60}}><NavLink className="link p-3 hover:bg-second rounded-lg" to="projects" style={({ isActive }) =>
+                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.60}}><span className="font-pixel text-sm text-fifth">04.</span><NavLink className="linkNavbar p-3 rounded-lg text-lg" to="projects" style={({ isActive }) =>
               isActive ? activeStyle : { textDecoration: 'none' }
             }>Projects</NavLink></motion.span>
-                <motion.span variants={boxVariant} initial="hidden" animate="visible" transition={{delay:75}}><NavLink className="link p-3 hover:bg-second rounded-lg" to="contact" style={({ isActive }) =>
-              isActive ? activeStyle : { textDecoration: 'none' }
-            }>Contact</NavLink></motion.span>
             </div>
         </div>
         {showNavBar &&

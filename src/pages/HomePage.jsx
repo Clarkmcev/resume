@@ -4,23 +4,7 @@ import { useEffect } from 'react';
 
 
 function HomePage() {
-  const [isShowed, setIsShowed] = useState(false)
-
   const boxVariant = {
-    hidden: {
-      opacity: 0
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        delay: 0.4,
-        staggerChildren: 0.8,
-        delayChildren:0.2
-      }
-    }
-  }
-
-  const childrenVariant = {
     hidden: {
       opacity: 0
     },
@@ -31,18 +15,18 @@ function HomePage() {
 
     return (
       <>
-        <motion.div variants={boxVariant} animate="visible" initial="hidden" className="content">
-            <motion.p className="text-third" variant={childrenVariant}>Greetings passenger, my name is</motion.p>
-            <motion.div className="text-8xl font-bold" variant={childrenVariant}>Clark McEvoy<span className="text-third">.</span></motion.div>
-            <div className="text-8xl font-light text-third">Frontend Developer<span className="text-third"></span></div>
+        <div className="content">
+            <motion.p className="text-third" variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.90}}>Greetings passenger, my name is</motion.p>
+            <motion.div className="text-8xl font-bold"  variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.05}}>Clark McEvoy<span className="text-third">.</span></motion.div>
+            <motion.div className="text-8xl font-light text-third" variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.20}}>Frontend Developer<span className="text-third"></span></motion.div>
             <div className="paragraph">
-              <div>I build solid and scalable products with great user experiences.</div>
-              <div>Software engineer from Colmar, France.</div>
+              <motion.div variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.45}}>I build solid and scalable products with great user experiences.</motion.div>
+              <motion.div variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.60}}>Software engineer from Colmar, France.</motion.div>
             </div>
-            <div className="">
+            <motion.div className="" variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.75}}>
             <a href="https://drive.google.com/file/d/1G9vvXh_cUNvC8njC5TYwYGCtC3LwAqg-/view?usp=sharing"><button className="button1">Resume</button></a>
-            </div>
-        </motion.div>
+            </motion.div>
+        </div>
         </>
       )
 }
