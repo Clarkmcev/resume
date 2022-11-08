@@ -57,7 +57,7 @@ function NavBar() {
   return (
     <>
         <div ref={ref} className="container">
-            <motion.div className="font-pixel text-3xl text-fifth" variants={boxLogo} initial="hidden" animate="visible" transition={{delay:0.15}}>
+            <motion.div className="font-pixel text-3xl text-fifth px-20 cursor-pointer" variants={boxLogo} initial="hidden" animate="visible" transition={{delay:0.15}}>
               <div>MC</div>
             </motion.div>
 
@@ -80,19 +80,19 @@ function NavBar() {
             </div>
         </div>
         {showNavBar &&
-            <div className="flex justify-between" >
+            <div className="flex justify-between absolute bg-first right-0" >
               <div></div>
               <div className="flex flex-col space-y-2">
-                <NavLink className="link hover:bg-second p-3 rounded-lg" to="home" style={({ isActive }) =>
+                <NavLink onClick={()=>setShowNavBar(!showNavBar)} className="link hover:bg-second p-3 rounded-lg" to="home" style={({ isActive }) =>
                 isActive ? activeStyle : { textDecoration: 'none' }
               }>Home</NavLink>
-                <NavLink className="link hover:bg-second p-3 rounded-lg" to="about" style={({ isActive }) =>
+                <NavLink onClick={()=>setShowNavBar(!showNavBar)} className="link hover:bg-second p-3 rounded-lg" to="about" style={({ isActive }) =>
                 isActive ? activeStyle : { textDecoration: 'none' }
               }>About</NavLink>
-              <NavLink className="link hover:bg-second p-3 rounded-lg" to="experience" style={({ isActive }) =>
+              <NavLink onClick={()=>setShowNavBar(!showNavBar)} className="link hover:bg-second p-3 rounded-lg" to="experience" style={({ isActive }) =>
                 isActive ? activeStyle : { textDecoration: 'none' }
               }>Experience</NavLink>
-              <NavLink className="link hover:bg-second p-3 rounded-lg" to="contact" style={({ isActive }) =>
+              <NavLink onClick={()=>setShowNavBar(!showNavBar)} className="link hover:bg-second p-3 rounded-lg" to="contact" style={({ isActive }) =>
                 isActive ? activeStyle : { textDecoration: 'none' }
               }>Contact</NavLink>
               </div>

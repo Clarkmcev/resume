@@ -39,7 +39,7 @@ function Experience() {
         initial="hidden"
         animate="visible"
         variants={motion1}>
-      <Outlet/>
+        <Outlet/>
       </motion.div>
       </div>
     </>

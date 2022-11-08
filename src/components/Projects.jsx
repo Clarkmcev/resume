@@ -33,7 +33,7 @@ function Work() {
               <div className="flex space-x-3">
             {project.stack.map((tech) => {
               return (
-                <div className=" text-third text-sm leading-10">{tech}</div>)
+                <div className="text-third text-sm leading-10">{tech}</div>)
             })}
               </div>
             </div>

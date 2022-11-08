@@ -4,6 +4,7 @@ function ContactBar() {
   return (
     <div>
       <div>Contact me</div>
+      <div>Here</div>
     </div>
   )
 }
