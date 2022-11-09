@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useRef } from 'react'
-import { NavLink,  Outlet } from 'react-router-dom'
+import { NavLink,  Outlet, useNavigate } from 'react-router-dom'
 import { motion } from "framer-motion";
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -10,6 +10,7 @@ function NavBar() {
   const [showNavBar, setShowNavBar] = useState(false)
   const [width, setWidth] = useState(0);
   const ref = useRef(null);
+  const navigate = useNavigate();
 
   let activeStyle = {
     color: "#ffffff",
@@ -49,7 +50,6 @@ function NavBar() {
       if (window.innerWidth > 640) {
         setShowNavBar(false)
       }
-    
 }
     window.addEventListener('resize', handleResize)
   },[])
@@ -57,7 +57,7 @@ function NavBar() {
   return (
     <>
         <div ref={ref} className="container">
-            <motion.div className="font-pixel text-3xl text-fifth px-20 cursor-pointer" variants={boxLogo} initial="hidden" animate="visible" transition={{delay:0.15}}>
+            <motion.div onClick={()=>navigate("/")} className="font-pixel text-3xl text-fifth px-20 cursor-pointer" variants={boxLogo} initial="hidden" animate="visible" transition={{delay:0.15}}>
               <div>MC</div>
             </motion.div>
 
