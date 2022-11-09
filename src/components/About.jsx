@@ -49,28 +49,9 @@ function About() {
               </div>
             </ul>
         </div>
-        <div className="flex items-center bg-second rounded-lg">
-        <img src={profileImg3} className="hidden md:inline-block h-96 rounded-lg profileImg cursor-pointer border-8 border-second bg-third  hover:bg-fourth transition-all duration-500" alt="profile_picture"/>
-
-        {/* <div className="flex-2 px-10">
-            <ul>
-              <div className="pb-5 text-white text-lg">
-              </div>
-              <div >
-                <li>JavaScript</li>
-                <li>Node</li>
-                <li>Next</li>
-                <li>React</li>
-                <li>TailwindCSS</li>
-                <li>Typescript</li>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>SQL</li>
-                <li>Python</li>
-              </div>
-            </ul>
-          </div> */}
-          </div>
+        <div className="flex items-center bg-second rounded-lg ">
+          <img src={profileImg3} className="hidden md:inline-block h-96 rounded-lg profileImg cursor-pointer border-8 border-second bg-third  hover:bg-fourth transition-all duration-500" alt="profile_picture"/>
+        </div>
 
       </motion.div>
     </div>

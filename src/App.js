@@ -20,12 +20,12 @@ function App() {
       <div className="max-h-screen overflow-hidden">
         <NavBar />
         <div className="grid grid-cols-10 gap-1">
-          <div className="hidden md:inline-block md:col-span-1 w-full h-screen p-20">
+          <div className="hidden md:inline-block md:col-span-1 w-full h-screen py-20">
             <div className="bg-first text-third h-full py-10">
               <SideBar />
             </div>
           </div>
-          <div className="col-span-9 w-screen h-screen md:py-20 rounded-2xl overflow-scroll max-h-screen">
+          <div className="col-span-8 w-screen h-screen md:py-20 rounded-2xl overflow-scroll max-h-screen">
             <Routes>
               <Route path="/">
                 <Route index element={<HomePage />} />
