@@ -16,7 +16,7 @@ function About() {
       animate="visible"
       variants={motion1}
       className="flex items-center space-x-10">
-        <div className="max-w-7xl flex-1">
+        <div className="max-w-xl flex-1">
           <div className="pt-10">
             Hi there, I'm Clark, I'm a Frontend Developer excited about building and creating amazing digital products.
             I recently discovered a burning passion for web development through my former job at <a className="ref" href="https://particuliers.societegenerale.fr/">Societe Generale</a> as an IT Trading Support.
@@ -50,7 +50,7 @@ function About() {
             </ul>
         </div>
         <div className="flex items-center bg-second rounded-lg ">
-          <img src={profileImg3} className="hidden md:inline-block h-96 rounded-lg profileImg cursor-pointer border-8 border-second bg-third  hover:bg-fourth transition-all duration-500" alt="profile_picture"/>
+          <img src={profileImg3} className="hidden lg:inline-block h-96 rounded-lg profileImg cursor-pointer border-8 border-second bg-third  hover:bg-fourth transition-all duration-500" alt="profile_picture"/>
         </div>
 
       </motion.div>

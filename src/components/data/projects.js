@@ -11,7 +11,7 @@ let projects = [
   {
     name: "Sunnyside",
     shortDescription: "Marketing Agency",
-    longDescription: "Colorful Lading page of a creative marketing agency!",
+    longDescription: "Colorful landing page of a creative marketing agency!",
     stack: ["JavaScript", "React", "Tailwind CSS"],
     url: "https://neon-kulfi-804606.netlify.app/",
     repo: "https://github.com/Clarkmcev/sunny-app",

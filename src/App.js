@@ -25,7 +25,7 @@ function App() {
               <SideBar />
             </div>
           </div>
-          <div className="col-span-8 w-screen h-screen md:py-20 rounded-2xl overflow-scroll max-h-screen">
+          <div className="col-span-8 w-screen h-screen pb-20 md:py-20 rounded-2xl overflow-scroll max-h-screen">
             <Routes>
               <Route path="/">
                 <Route index element={<HomePage />} />
