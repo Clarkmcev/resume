@@ -26,15 +26,6 @@ let projects = [
     repo: "https://github.com/Clarkmcev/real-estate-app",
   },
   {
-    name: "Vitalcool",
-    shortDescription: "Beverage E-commerce",
-    longDescription:
-      "No more drinks for the night? Don't worry, Vitalcool got you.",
-    stack: ["JavaScript", "React", "Node", "MongoDB"],
-    url: "https://vitalcool.netlify.app/",
-    repo: "https://github.com/Clarkmcev/vitalcool-client",
-  },
-  {
     name: "Ghibli's Library",
     shortDescription: "Movies Catalog",
     longDescription:
