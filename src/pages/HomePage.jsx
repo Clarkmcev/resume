@@ -24,7 +24,7 @@ function HomePage() {
               <motion.div variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.60}}>Software engineer from Colmar, France.</motion.div>
             </div>
             <motion.div className="" variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.75}}>
-            <a href="https://drive.google.com/file/d/1G9vvXh_cUNvC8njC5TYwYGCtC3LwAqg-/view?usp=sharing"><button className="button1">Resume</button></a>
+            <a href="https://drive.google.com/file/d/1X3zmavfxUwxK5agkVst7oYDo0khXgT8c/view?usp=sharing"><button className="button1">Resume</button></a>
             </motion.div>
         </div>
         </>

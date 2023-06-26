@@ -12,7 +12,7 @@ function Noveo() {
     variants={motion1}
     className="inner">
       <div className="position">IT Business Engineer <span className="company">@ Noveo Group</span></div>
-      <div className="date">Sept 2019 - February 2020</div>
+      <div className="date">Sept 2019 - August 2020</div>
       <ul>
         <li className="task"> Definition of a prospecting field (Key accounts, middle market, etc.)</li>
         <li className="task">Ensure a competitive and technological monitoring</li>
