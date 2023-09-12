@@ -1,6 +1,6 @@
 import React, { useState, useRef, useLayoutEffect } from 'react'
 import { motion } from "framer-motion";
-import { useEffect } from 'react';
+import WaterDropGrid from '../components/WaterDropGrid';
 
 
 function HomePage() {
@@ -27,6 +27,7 @@ function HomePage() {
             <a href="https://drive.google.com/file/d/1X3zmavfxUwxK5agkVst7oYDo0khXgT8c/view?usp=sharing"><button className="button1">Resume</button></a>
             </motion.div>
         </div>
+        <WaterDropGrid/>
         </>
       )
 }
