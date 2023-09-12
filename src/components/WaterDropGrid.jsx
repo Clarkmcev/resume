@@ -9,16 +9,16 @@ function WaterDropGrid() {
   );
 }
 
-const GRID_WIDTH = 25;
+const GRID_WIDTH = 100;
 const GRID_HEIGHT = 20;
 
 const DotGrid = () => {
   const handleDotClick = (e) => {
     anime({
-      targets: ".dot-point",
+      targets: '.dot-point',
       scale: [
-        { value: 1.35, easing: 'easingOutSine', duration: 250 },
-        { value: 1, easing: 'easingInOutQuad', duration: 500 },
+        { value: 1.35, easing: 'easeOutSine', duration: 250 },
+        { value: 1, easing: 'easeInOutQuad', duration: 500 },
       ],
       translateY: [
         { value: -15, easing: 'easeOutSine', duration: 250 },
@@ -28,6 +28,10 @@ const DotGrid = () => {
         { value: 1, easing: 'easeOutSine', duration: 250 },
         { value: 0.5, easing: 'easeInOutQuad', duration: 500 },
       ],
+      delay: anime.stagger(100, {
+        grid: [GRID_WIDTH, GRID_HEIGHT],
+        from: e.target.dataset.index,
+      }),
     });
   };
 
@@ -39,7 +43,7 @@ const DotGrid = () => {
       dots.push(
         <div
           onClick={handleDotClick}
-          className="group cursor-crosshair rounded-full p-2 transition-colors hover:bg-slate-600"
+          className="group cursor-pointer rounded-full p-2 transition-colors hover:bg-slate-600"
           data-index={index}
           key={`${i}-${j}`}
         >
