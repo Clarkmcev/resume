@@ -19,7 +19,7 @@ function SideBar() {
     
 
   return (
-      <div className="text-third flex flex-col h-full space-y-6 mt-10 bg-red-200" >
+      <div className="text-third flex flex-col h-full space-y-6 mt-10" >
           <motion.a variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.80, bounce: 1}} href="https://www.linkedin.com/in/clark-mcevoy-904378150/"><BsLinkedin size={"32px"} className="link mx-auto"/></motion.a>
           <motion.a variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.85, bounce: 0.25 }} href="https://github.com/Clarkmcev"><BsGithub size={"32px"} className="link mx-auto"/></motion.a>
           <motion.a variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.90, bounce: 0.25}} href="https://twitter.com/clarkmcev"><BsTwitter size={"32px"} className="link mx-auto"/></motion.a>
