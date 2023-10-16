@@ -1,6 +1,5 @@
-import React, { useState, useRef, useLayoutEffect } from 'react'
+import React from 'react'
 import { motion } from "framer-motion";
-import { useEffect } from 'react';
 
 
 function HomePage() {
@@ -14,8 +13,7 @@ function HomePage() {
   }
 
     return (
-      <>
-        <div className="content">
+        <div className="max-w-7xl p-10 mb-20 mx-auto bg-red-500">
             <motion.p className="text-third" variants={boxVariant} initial="hidden" animate="visible" transition={{delay:0.90}}>Greetings passenger, my name is</motion.p>
             <motion.div className="text-5xl sm:text-8xl font-bold"  variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.05}}>Clark McEvoy<span className="text-third">.</span></motion.div>
             <motion.div className="text-6xl lg:text-8xl font-light text-third" variants={boxVariant} initial="hidden" animate="visible" transition={{delay:1.20}}>Frontend Developer<span className="text-third"></span></motion.div>
@@ -27,7 +25,6 @@ function HomePage() {
             <a href="https://drive.google.com/file/d/1X3zmavfxUwxK5agkVst7oYDo0khXgT8c/view?usp=sharing"><button className="button1">Resume</button></a>
             </motion.div>
         </div>
-        </>
       )
 }
 
