@@ -1,4 +1,4 @@
-# README for Clark McEvoy's Resume Website
+# My very simple resume
 
 Welcome to my personal resume website repository! This site is designed to showcase my professional journey, creative projects, and passions. 
 Here, you’ll find insights into my career in software development, my interests as well as my artistic passion.
