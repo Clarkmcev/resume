@@ -36,10 +36,18 @@ let projects = [
   {
     name: "Amanda McStudio",
     shortDescription: "Paintings Gallery",
-    longDescription: "A website to share, read and learn new things.",
+    longDescription: "Art gallery.",
     stack: ["TypeScript", "Vite", "AWS", "TailwindCSS"],
     url: "https://amanda-mcstudio.com/paintings",
     repo: "https://github.com/Clarkmcev/cappa",
+  },
+  {
+    name: "TikTakTu",
+    shortDescription: "Game",
+    longDescription: "A simple Tic Tac Toe game.",
+    stack: ["Next", "TypeScript", "TailwindCSS"],
+    url: "https://tictactoe-liard-eight.vercel.app/",
+    repo: "https://github.com/Clarkmcev/tictactoe",
   },
 ];
 
