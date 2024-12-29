@@ -15,7 +15,7 @@ function GBS() {
           Full Stack Developer
           <span className="company ml-2">@German Bionic Systems</span>
         </div>
-        <div className="date">Oct 2022 - Present</div>
+        <div className="date">Oct 2023 - Present</div>
         <ul className="flex flex-col space-y-2">
           <li className="task">
             German Bionic Systems cloud platform developer.

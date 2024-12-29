@@ -14,7 +14,7 @@ function Airbus() {
         <div className="position">
           Full Stack Developer <span className="company">@Airbus</span>
         </div>
-        <div className="date">Jan 2022 - Sept 2022</div>
+        <div className="date">Jan 2023 - Sept 2023</div>
         <ul className="flex flex-col space-y-2">
           <li className="task">
             Contributed to the development of an AI-Driven costing tool for
