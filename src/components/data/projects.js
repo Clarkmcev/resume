@@ -5,7 +5,7 @@ let projects = [
     longDescription:
       "Collect as many fruits as possible without falling out of the screen, good luck!",
     stack: ["JavaScript", "Canvas"],
-    url: "https://clarkmcev.github.io/",
+    url: "https://runman.vercel.app/",
     repo: "https://github.com/Clarkmcev/runman.github.io",
   },
   {
@@ -15,15 +15,6 @@ let projects = [
     stack: ["JavaScript", "React", "Tailwind CSS"],
     url: "https://neon-kulfi-804606.netlify.app/",
     repo: "https://github.com/Clarkmcev/sunny-app",
-  },
-  {
-    name: "Proprio",
-    shortDescription: "RealEstate Marketplace",
-    longDescription:
-      "The future of RealEstate is there. Find your dream house in no time!",
-    stack: ["JavaScript", "Node", "Express", "MongoDB"],
-    url: "https://app-proprio.herokuapp.com/",
-    repo: "https://github.com/Clarkmcev/real-estate-app",
   },
   {
     name: "Ghibli's Library",
@@ -41,6 +32,14 @@ let projects = [
     stack: ["Next", "Sanity", "Typescript", "TailwindCSS"],
     url: "https://blogger-izmepyhci-clarkmcev.vercel.app/",
     repo: "https://github.com/Clarkmcev/blogger",
+  },
+  {
+    name: "Amanda McStudio",
+    shortDescription: "Paintings Gallery",
+    longDescription: "A website to share, read and learn new things.",
+    stack: ["TypeScript", "Vite", "AWS", "TailwindCSS"],
+    url: "https://amanda-mcstudio.com/paintings",
+    repo: "https://github.com/Clarkmcev/cappa",
   },
 ];
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import About from "./About";
@@ -6,9 +6,8 @@ import Contact from "./Contact";
 import Experience from "./Experience";
 import Projects from "./Projects";
 import Sg from "./Experience/Sg";
-import Noveo from "./Experience/Noveo.jsx";
-import Tilia from "./Experience/Tilia";
-import Actemium from "./Experience/Actemium";
+import Airbus from "./Experience/Airbus.jsx";
+import GBS from "./Experience/GBS.jsx";
 
 function AppRoutes() {
   return (
@@ -20,9 +19,8 @@ function AppRoutes() {
         <Route path="/experience" element={<Experience />}>
           <Route index element={<Sg />} />
           <Route path="/experience/sg" element={<Sg />} />
-          <Route path="/experience/noveo" element={<Noveo />} />
-          <Route path="/experience/tilia" element={<Tilia />} />
-          <Route path="/experience/actemium" element={<Actemium />} />
+          <Route path="/experience/airbus" element={<Airbus />} />
+          <Route path="/experience/gbs" element={<GBS />} />
         </Route>
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
@@ -30,7 +28,7 @@ function AppRoutes() {
       <Route
         path="/about/ironhack"
         component={() => {
-          window.location.href = 'https://www.ironhack.com/';
+          window.location.href = "https://www.ironhack.com/";
           return null;
         }}
       />

@@ -4,124 +4,124 @@
 
 @layer components {
   body {
-    @apply bg-first text-fourth text-base
+    @apply bg-first text-fourth text-base;
   }
 
   .selection {
-    @apply h-10 text-second w-24
+    @apply h-10 text-second w-24;
   }
 
   .link {
-    @apply hover:text-fourth transition-all duration-150 hover:-translate-y-1
+    @apply hover:text-fourth transition-all duration-150 hover:-translate-y-1;
   }
 
   .linkNavbar {
-    @apply hover:text-fifth text-fourth transition-all duration-150 hover:-translate-y-1
+    @apply hover:text-fifth text-fourth transition-all duration-150 hover:-translate-y-1;
   }
 
   .container {
-    @apply flex justify-between max-w-7xl mx-auto items-center
+    @apply flex justify-between max-w-7xl mx-auto items-center;
   }
 
   .menu {
-    @apply my-10 text-third items-center
+    @apply my-10 text-third items-center;
   }
 
   /* global scope */
   h1 {
-    @apply text-4xl text-white
+    @apply text-4xl text-white;
   }
 
   .number {
-    @apply font-pixel text-xl text-fourth pr-5 text-fifth
+    @apply font-pixel text-xl text-fourth pr-5 text-fifth;
   }
 
   /* buttons */
   .button1 {
-    @apply bg-second p-5 rounded-xl hover:bg-fourth duration-300 transition-all text-fourth hover:text-first border-third border-2
+    @apply bg-second p-5 rounded-xl hover:bg-fourth duration-300 transition-all text-fourth hover:text-first border-third border-2;
   }
 
   /* ref */
   .ref {
-    @apply text-white hover:underline
+    @apply text-white hover:underline;
   }
 
   /* home page */
   .content {
-    @apply max-w-7xl p-10 mb-20 mx-auto
+    @apply max-w-7xl p-10 mb-20 mx-auto;
   }
 
   .paragraph {
-    @apply py-10
+    @apply py-10;
   }
 
   .networks {
-    @apply flex
+    @apply flex;
   }
 
   .stack {
-    @apply flex flex-wrap list-disc ml-5
+    @apply flex flex-wrap list-disc ml-5;
   }
 
   /* experience  */
 
   .inner {
-    @apply mx-auto
+    @apply mx-auto;
   }
 
   .position {
-    @apply mt-5
+    @apply mt-5;
   }
 
   .task {
-    @apply ml-5
+    @apply ml-5;
   }
 
   .company {
-    @apply text-white
+    @apply text-white;
   }
 
   .navbarxp {
-    @apply my-10
+    @apply my-10;
   }
 
   .xpitem {
-    @apply text-third hover:bg-second m-5 p-5 rounded-md
+    @apply text-third hover:bg-second p-5 rounded-md;
   }
 
   .date {
-    @apply text-third font-light mb-5
+    @apply text-third font-light mb-5;
   }
 
   /* project */
   .projects {
-    @apply mt-10 flex flex-wrap
+    @apply mt-10 flex flex-wrap;
   }
 
   .card {
-    @apply bg-second w-72 m-2 rounded-2xl relative hover:-translate-y-2 h-fit border-r-4 border-b-4 border-third duration-500 drop-shadow-md transition-all
+    @apply bg-second w-72 m-2 rounded-2xl relative hover:-translate-y-2 h-fit border-r-4 border-b-4 border-third duration-500 drop-shadow-md transition-all;
   }
 
   .logos {
-    @apply m-5 flex space-x-4 text-third
+    @apply m-5 flex space-x-4 text-third;
   }
 
   .box {
-    @apply w-8
+    @apply w-8;
   }
 
   .boxItem {
-    @apply w-24 h-16 bg-red-500
+    @apply w-24 h-16 bg-red-500;
   }
 
   /* text  */
   .terminal {
-    @apply bg-black text-white p-5 h-fit w-fit
+    @apply bg-black text-white p-5 h-fit w-fit;
   }
 
   /* introduction  */
   .intro {
-    @apply relative m-auto
+    @apply relative m-auto;
   }
 }
 
@@ -145,13 +145,3 @@ line {
   stroke-linecap: round;
   fill: transparent;
 }
-
-/* html {
-  height: 100%
-}
-
-body {
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
-} */
