@@ -65,7 +65,7 @@ function HomePage() {
         animate="visible"
         transition={{ delay: 1.75 }}
       >
-        <a href="https://drive.google.com/file/d/1X3zmavfxUwxK5agkVst7oYDo0khXgT8c/view?usp=sharing">
+        <a href="https://drive.google.com/file/d/1G20hnKyH7MK09WknB2_moXempDnvvgoO/view?usp=sharing">
           <button className="button1">Resume</button>
         </a>
       </motion.div>
