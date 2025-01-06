@@ -18,18 +18,20 @@ function About() {
         variants={motion1}
         className="flex items-center space-x-10"
       >
-        <div className="max-w-xl flex-1">
+        <div className="max-w-xl flex-1 flex flex-col space-y-4">
           <div className="pt-10">
             Hi there, I'm Clark, I'm a Software Engineer excited about building
             and creating amazing digital products. I am a dedicated Full Stack
             developer with over 3 years of experience in designing and
-            implementing scalable cloud platforms. With a strong focus on
-            building user-friendly interfaces and smooth user experiences, I
-            combine creativity and technical expertise to deliver robust and
-            efficient solutions.
+            implementing scalable cloud platforms.
+          </div>
+          <div>
+            With a strong focus on building user-friendly interfaces and smooth
+            user experiences, I combine creativity and technical expertise to
+            deliver robust and efficient solutions.
           </div>
           <ul>
-            <div className="py-5">
+            <div className="pb-4">
               The technologies I've been recently working with:
             </div>
             <div className="px-5 flex space-x-10">

@@ -126,7 +126,7 @@ function NavBar() {
             <span className="font-pixel text-sm text-fifth">03.</span>
             <NavLink
               className="linkNavbar p-3 rounded-lg text-lg"
-              to="experience"
+              to="experience/sg"
               style={({ isActive }) =>
                 isActive ? activeStyle : { textDecoration: "none" }
               }

@@ -35,7 +35,7 @@ function sg() {
             Support of trading teams with FBI queries and requests related to
             static databases.
           </li>
-          <li className="task">Testing of new features/processes</li>
+          <li className="task">Testing of new features/processes.</li>
         </ul>
       </motion.div>
     </>

@@ -1,10 +1,14 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import motion1 from "./animation/animation";
 
 function Experience() {
   const [selectedTab, setSelectedTab] = useState(0);
+
+  useEffect(() => {
+    setSelectedTab(0);
+  }, []);
 
   let activeStyle = {
     color: "#77ABB7",
