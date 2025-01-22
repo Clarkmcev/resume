@@ -12,7 +12,7 @@ function HomePage() {
   };
 
   return (
-    <div className="max-w-7xl p-10 mb-20 mx-auto">
+    <div className="max-w-7xl p-10 mb-20">
       <motion.p
         className="text-third"
         variants={boxVariant}
