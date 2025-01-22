@@ -29,11 +29,11 @@
 
   /* global scope */
   h1 {
-    @apply text-4xl text-white;
+    @apply text-3xl text-white;
   }
 
   .number {
-    @apply font-pixel text-xl text-fourth pr-5 text-fifth;
+    @apply font-pixel text-sm text-fifth;
   }
 
   /* buttons */

@@ -89,7 +89,7 @@ function NavBar() {
             animate="visible"
             transition={{ delay: 0.15 }}
           >
-            <span className="font-pixel text-sm text-fifth">01.</span>
+            <span className="number">01.</span>
             <NavLink
               className="linkNavbar p-3 rounded-lg text-lg"
               to="home"
@@ -106,7 +106,7 @@ function NavBar() {
             animate="visible"
             transition={{ delay: 0.3 }}
           >
-            <span className="font-pixel text-sm text-fifth">02.</span>
+            <span className="number">02.</span>
             <NavLink
               className="linkNavbar p-3 rounded-lg text-lg"
               to="about"
@@ -123,7 +123,7 @@ function NavBar() {
             animate="visible"
             transition={{ delay: 0.45 }}
           >
-            <span className="font-pixel text-sm text-fifth">03.</span>
+            <span className="number">03.</span>
             <NavLink
               className="linkNavbar p-3 rounded-lg text-lg"
               to="experience/sg"
@@ -140,7 +140,7 @@ function NavBar() {
             animate="visible"
             transition={{ delay: 0.6 }}
           >
-            <span className="font-pixel text-sm text-fifth">04.</span>
+            <span className="number">04.</span>
             <NavLink
               className="linkNavbar p-3 rounded-lg text-lg"
               to="projects"

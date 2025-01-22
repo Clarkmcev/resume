@@ -19,7 +19,7 @@ function Experience() {
     <>
       <div className="content">
         <h1>
-          <span className="number">02.</span>Experience
+          <span className="number mr-4">02.</span>Experience
         </h1>
         <motion.div
           initial="hidden"

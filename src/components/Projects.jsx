@@ -17,7 +17,7 @@ function Work() {
   return (
     <div className="content mb-40 pr-20">
       <h1>
-        <span className="number">03.</span>My projects
+        <span className="number mr-4">03.</span>My projects
       </h1>
       <div className="projects">
         {projects.map((project, i) => {
