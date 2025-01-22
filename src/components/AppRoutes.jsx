@@ -25,13 +25,6 @@ function AppRoutes() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
-      <Route
-        path="/about/ironhack"
-        component={() => {
-          window.location.href = "https://www.ironhack.com/";
-          return null;
-        }}
-      />
     </Routes>
   );
 }

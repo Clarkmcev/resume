@@ -48,7 +48,7 @@
 
   /* home page */
   .content {
-    @apply max-w-7xl p-10 mb-20 mx-auto;
+    @apply max-w-7xl w-full mb-20;
   }
 
   .paragraph {
@@ -86,7 +86,7 @@
   }
 
   .xpitem {
-    @apply text-third hover:bg-second p-5 rounded-md;
+    @apply text-third hover:bg-second p-2 rounded-md;
   }
 
   .date {

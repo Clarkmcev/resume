@@ -15,7 +15,7 @@ function Work() {
   };
 
   return (
-    <div className="content">
+    <div className="content mb-40 pr-20">
       <h1>
         <span className="number">03.</span>My projects
       </h1>
