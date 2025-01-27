@@ -7,6 +7,7 @@ function Footer() {
     "https://api.github.com/repos/Clarkmcev/resume/commits?sha=main&per_page=1&page=1'"
   ).then((response) => {
     response.json();
+    console.log(response);
     setCommitsNumber(response.url);
   });
 
