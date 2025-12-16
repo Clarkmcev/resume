@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function Footer() {
   const [commitsNumber, setCommitsNumber] = useState("0");
@@ -7,13 +7,8 @@ function Footer() {
     "https://api.github.com/repos/Clarkmcev/resume/commits?sha=main&per_page=1&page=1'"
   ).then((response) => {
     response.json();
-    console.log(response);
     setCommitsNumber(response.url);
   });
-
-  useEffect(() => {
-    console.log(commitsNumber);
-  }, []);
 
   const splitString = (string) => {
     return string.split("page=1%").pop();
