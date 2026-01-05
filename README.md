@@ -8,6 +8,7 @@ Here, you’ll find insights into my career in software development, my interest
     About Me
     Features
     Technologies Used
+    Projects developed
 
 # About Me
 
