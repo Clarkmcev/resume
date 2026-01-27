@@ -4,7 +4,6 @@ Welcome to my personal resume website repository! This site is designed to showc
 
 ## 📋 Table of Contents
 
-<<<<<<< Updated upstream
 - [About the Project](#about-the-project)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -16,13 +15,6 @@ Welcome to my personal resume website repository! This site is designed to showc
 - [Project Structure](#project-structure)
 - [Redux State Management](#redux-state-management)
 - [Contact](#contact)
-=======
-    About Me
-    Features
-    Technologies Used
-    Projects developed
-    Contact me
->>>>>>> Stashed changes
 
 ## 🎯 About the Project
 
@@ -44,28 +36,34 @@ The application uses Redux Toolkit for efficient and scalable state management, 
 ## 🛠️ Technologies Used
 
 ### Frontend Framework
+
 - **React 18.2.0**: Modern JavaScript library for building user interfaces
 - **React DOM**: Entry point to the DOM and server renderers for React
 - **React Router**: Client-side routing for single-page application navigation
 
 ### State Management
+
 - **Redux Toolkit**: Official, opinionated Redux toolset for efficient Redux development
 - **React Redux**: Official React bindings for Redux
 
 ### Styling & UI
+
 - **Tailwind CSS**: Utility-first CSS framework for rapid UI development
 - **Custom CSS**: Additional styling for unique design elements
 
 ### Animation & Interactivity
+
 - **Framer Motion 7.5.1**: Production-ready motion library for React
 - **React Canvas Paint 1.0.1**: Interactive canvas component for drawing
 
 ### Build Tools
+
 - **React Scripts 5.0.1**: Configuration and scripts for Create React App
 - **Webpack 5.74.0**: Module bundler for JavaScript applications
 - **TypeScript Support**: Type definitions for React components
 
 ### Testing
+
 - **Jest**: JavaScript testing framework
 - **React Testing Library**: Testing utilities for React components
 - **@testing-library/user-event**: User interaction simulation for tests
@@ -75,17 +73,20 @@ The application uses Redux Toolkit for efficient and scalable state management, 
 ### Prerequisites
 
 Before you begin, ensure you have the following installed:
+
 - **Node.js** (version 14 or higher recommended)
 - **npm** (comes with Node.js) or **yarn**
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/resume.git
    ```
 
 2. **Navigate into the project directory**
+
    ```bash
    cd resume
    ```
@@ -98,6 +99,7 @@ Before you begin, ensure you have the following installed:
 ### Running the Application
 
 Start the development server:
+
 ```bash
 npm start
 ```
@@ -109,20 +111,25 @@ The application will open in your default browser at [http://localhost:3000](htt
 In the project directory, you can run:
 
 ### `npm start`
+
 Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page reloads when you make changes, and lint errors appear in the console.
 
 ### `npm test`
+
 Launches the test runner in interactive watch mode. See the [running tests documentation](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
+
 Builds the app for production to the `dist` folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and filenames include hashes.
 
 ### `npm run eject`
+
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
 If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command copies all configuration files and transitive dependencies into your project.
 
 ### `npm run magic`
+
 Runs Webpack bundler with custom configuration for advanced build scenarios.
 
 ## 📁 Project Structure
@@ -167,8 +174,8 @@ Redux Toolkit uses "slices" to define reducers and actions. An example slice is 
 To use Redux state and actions in your components:
 
 ```javascript
-import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement } from './store/exampleSlice';
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement } from "./store/exampleSlice";
 
 function MyComponent() {
   const value = useSelector((state) => state.example.value);
