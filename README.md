@@ -4,6 +4,7 @@ Welcome to my personal resume website repository! This site is designed to showc
 
 ## 📋 Table of Contents
 
+<<<<<<< Updated upstream
 - [About the Project](#about-the-project)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -15,6 +16,13 @@ Welcome to my personal resume website repository! This site is designed to showc
 - [Project Structure](#project-structure)
 - [Redux State Management](#redux-state-management)
 - [Contact](#contact)
+=======
+    About Me
+    Features
+    Technologies Used
+    Projects developed
+    Contact me
+>>>>>>> Stashed changes
 
 ## 🎯 About the Project
 
