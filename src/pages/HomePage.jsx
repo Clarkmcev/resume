@@ -55,7 +55,7 @@ function HomePage() {
           animate="visible"
           transition={{ delay: 1.6 }}
         >
-          Software engineer from Colmar, France.
+          Software Engineer from Augsburg, Germany.
         </motion.div>
       </div>
       <motion.div
