@@ -13,9 +13,9 @@ function App() {
           <div className="hidden md:inline-block md:col-span-2 w-full h-screen py-20">
             <SideBar />
           </div>
-          <div className="col-span-8 w-screen h-screen md:py-4 overflow-scroll max-h-screen mx-10 md:mx-0">
+          <main className="col-span-8 w-screen h-screen md:py-4 overflow-scroll max-h-screen mx-10 md:mx-0">
             <AppRoutes />
-          </div>
+          </main>
         </div>
       </div>
       <Footer />

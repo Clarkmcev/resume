@@ -1,4 +1,4 @@
-let projects = [
+const projects = [
   {
     name: "Runman",
     shortDescription: "2D Retro Game",

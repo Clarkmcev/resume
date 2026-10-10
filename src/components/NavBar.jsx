@@ -1,198 +1,95 @@
-import React, { useLayoutEffect, useRef } from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useEffect } from "react";
+import { fade, slideInLeft } from "../animation/variants";
+import { navLinks } from "../data/navigation";
+
+// Matches Tailwind's `sm` breakpoint, where the desktop menu takes over.
+const DESKTOP_QUERY = "(min-width: 640px)";
+
+const activeStyle = { color: "#ffffff", textDecoration: "none" };
+const inactiveStyle = { textDecoration: "none" };
+const linkStyle = ({ isActive }) => (isActive ? activeStyle : inactiveStyle);
 
 function NavBar() {
-  const [showNavBar, setShowNavBar] = useState(false);
-  const [width, setWidth] = useState(0);
-  const ref = useRef(null);
-  const navigate = useNavigate();
-
-  let activeStyle = {
-    color: "#ffffff",
-    textDecoration: "none",
-  };
-
-  const boxVariant = {
-    hidden: {
-      position: "relative",
-      opacity: 0,
-      x: "-100vh",
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
-  };
-
-  const boxLogo = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-    },
-  };
-
-  useLayoutEffect(() => {
-    setWidth(ref.current.offsetWidth);
-  }, [width]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    function handleResize() {
-      console.log(
-        "resized to: ",
-        window.innerWidth,
-        "x",
-        window.innerHeight,
-        showNavBar
-      );
-      setWidth(window.innerWidth);
-
-      if (window.innerWidth > 640) {
-        setShowNavBar(false);
-      }
-    }
-    window.addEventListener("resize", handleResize);
+    const mediaQuery = window.matchMedia(DESKTOP_QUERY);
+    const closeOnDesktop = (event) => {
+      if (event.matches) setIsMenuOpen(false);
+    };
+    mediaQuery.addEventListener("change", closeOnDesktop);
+    return () => mediaQuery.removeEventListener("change", closeOnDesktop);
   }, []);
 
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <>
-      <div ref={ref} className="container">
+    <header>
+      <nav className="container">
         <motion.div
-          onClick={() => navigate("/")}
-          className="font-pixel text-3xl text-fifth px-20 cursor-pointer"
-          variants={boxLogo}
+          className="font-pixel text-3xl text-fifth px-20"
+          variants={fade}
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.15 }}
         >
-          <div>MC</div>
+          <Link to="/">MC</Link>
         </motion.div>
 
         <button
-          className={showNavBar ? "text-third" : "text-second"}
-          onClick={() => setShowNavBar(!showNavBar)}
+          type="button"
+          className={isMenuOpen ? "text-third" : "text-second"}
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
         >
           <GiHamburgerMenu
             size="50px"
             className="text-second m-10 items-center hover:text-third cursor-pointer sm:hidden focus:bg-third"
           />
         </button>
+
         <div className="hidden sm:inline-block my-10 text-third items-center">
-          <motion.span
-            variants={boxVariant}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 0.15 }}
-          >
-            <span className="number">01.</span>
-            <NavLink
-              className="linkNavbar p-3 rounded-lg text-lg"
-              to="home"
-              style={({ isActive }) =>
-                isActive ? activeStyle : { textDecoration: "none" }
-              }
+          {navLinks.map(({ to, label }, i) => (
+            <motion.span
+              key={to}
+              variants={slideInLeft}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.15 * (i + 1) }}
             >
-              Home
-            </NavLink>
-          </motion.span>
-          <motion.span
-            variants={boxVariant}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 0.3 }}
-          >
-            <span className="number">02.</span>
-            <NavLink
-              className="linkNavbar p-3 rounded-lg text-lg"
-              to="about"
-              style={({ isActive }) =>
-                isActive ? activeStyle : { textDecoration: "none" }
-              }
-            >
-              About
-            </NavLink>
-          </motion.span>
-          <motion.span
-            variants={boxVariant}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 0.45 }}
-          >
-            <span className="number">03.</span>
-            <NavLink
-              className="linkNavbar p-3 rounded-lg text-lg"
-              to="experience/sg"
-              style={({ isActive }) =>
-                isActive ? activeStyle : { textDecoration: "none" }
-              }
-            >
-              Experience
-            </NavLink>
-          </motion.span>
-          <motion.span
-            variants={boxVariant}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 0.6 }}
-          >
-            <span className="number">04.</span>
-            <NavLink
-              className="linkNavbar p-3 rounded-lg text-lg"
-              to="projects"
-              style={({ isActive }) =>
-                isActive ? activeStyle : { textDecoration: "none" }
-              }
-            >
-              Projects
-            </NavLink>
-          </motion.span>
+              <span className="number">{String(i + 1).padStart(2, "0")}.</span>
+              <NavLink
+                className="linkNavbar p-3 rounded-lg text-lg"
+                to={to}
+                style={linkStyle}
+              >
+                {label}
+              </NavLink>
+            </motion.span>
+          ))}
         </div>
-      </div>
-      {showNavBar && (
-        <div className="flex justify-between absolute bg-first right-0">
-          <div></div>
-          <div className="flex flex-col space-y-2">
+      </nav>
+
+      {isMenuOpen && (
+        <div className="flex flex-col space-y-2 absolute bg-first right-0">
+          {navLinks.map(({ to, label }) => (
             <NavLink
-              onClick={() => setShowNavBar(!showNavBar)}
+              key={to}
+              onClick={closeMenu}
               className="link hover:bg-second p-3 rounded-lg"
-              to="home"
-              style={({ isActive }) =>
-                isActive ? activeStyle : { textDecoration: "none" }
-              }
+              to={to}
+              style={linkStyle}
             >
-              Home
+              {label}
             </NavLink>
-            <NavLink
-              onClick={() => setShowNavBar(!showNavBar)}
-              className="link hover:bg-second p-3 rounded-lg"
-              to="about"
-              style={({ isActive }) =>
-                isActive ? activeStyle : { textDecoration: "none" }
-              }
-            >
-              About
-            </NavLink>
-            <NavLink
-              onClick={() => setShowNavBar(!showNavBar)}
-              className="link hover:bg-second p-3 rounded-lg"
-              to="experience"
-              style={({ isActive }) =>
-                isActive ? activeStyle : { textDecoration: "none" }
-              }
-            >
-              Experience
-            </NavLink>
-          </div>
+          ))}
         </div>
       )}
-
-      <Outlet />
-    </>
+    </header>
   );
 }
 
