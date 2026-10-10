@@ -1,70 +1,18 @@
-import React from "react";
-import projects from "./data/projects";
-import { BsGithub } from "react-icons/bs";
-import { FaExternalLinkAlt } from "react-icons/fa";
-import { motion } from "framer-motion";
+import projects from "../data/projects";
+import ProjectCard from "./ProjectCard";
+import SectionHeading from "./SectionHeading";
 
-function Work() {
-  const boxVariant = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-    },
-  };
-
+function Projects() {
   return (
-    <div className="content mb-40 pr-20">
-      <h1>
-        <span className="number mr-4">03.</span>My projects
-      </h1>
+    <section className="content mb-40 pr-20">
+      <SectionHeading number="03">My projects</SectionHeading>
       <div className="projects">
-        {projects.map((project, i) => {
-          return (
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              transition={{ duration: 0.1, delay: 0.1 * i }}
-              variants={boxVariant}
-              className="card group"
-            >
-              <a href={project.url}>
-                <div className="text-fourth mt-5 mx-5 text-xl group-hover:text-white">
-                  {project.name}
-                </div>
-                <div className="mx-5 text-third text-base">
-                  [{project.shortDescription}]
-                </div>
-                <div className="m-5 text-sm h-10">
-                  {project.longDescription}
-                </div>
-                <div className="m-5">
-                  <div className="flex space-x-3">
-                    {project.stack.map((tech) => {
-                      return (
-                        <div className="text-third text-sm leading-10">
-                          {tech}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="logos">
-                  <a href={project.repo}>
-                    <BsGithub className="link" />
-                  </a>
-                  <a href={project.url}>
-                    <FaExternalLinkAlt className="link" />
-                  </a>
-                </div>
-              </a>
-            </motion.div>
-          );
-        })}
+        {projects.map((project, index) => (
+          <ProjectCard key={project.name} project={project} index={index} />
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
 
-export default Work;
+export default Projects;

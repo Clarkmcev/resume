@@ -1,75 +1,51 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { fade } from "../animation/variants";
+
+const RESUME_URL =
+  "https://drive.google.com/file/d/1G20hnKyH7MK09WknB2_moXempDnvvgoO/view?usp=sharing";
+
+function FadeIn({ as = "div", delay, className, children }) {
+  const Component = motion[as];
+  return (
+    <Component
+      className={className}
+      variants={fade}
+      initial="hidden"
+      animate="visible"
+      transition={{ delay }}
+    >
+      {children}
+    </Component>
+  );
+}
 
 function HomePage() {
-  const boxVariant = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-    },
-  };
-
   return (
-    <div className="max-w-7xl p-10 mb-20">
-      <motion.p
-        className="text-third"
-        variants={boxVariant}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 0.9 }}
-      >
+    <section className="max-w-7xl p-10 mb-20">
+      <FadeIn as="p" delay={0.9} className="text-third">
         Greetings passenger, my name is
-      </motion.p>
-      <motion.div
-        className="text-5xl sm:text-8xl font-bold"
-        variants={boxVariant}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 1.05 }}
-      >
+      </FadeIn>
+      <FadeIn delay={1.05} className="text-5xl sm:text-8xl font-bold">
         Clark McEvoy<span className="text-third">.</span>
-      </motion.div>
-      <motion.div
+      </FadeIn>
+      <FadeIn
+        delay={1.2}
         className="text-6xl lg:text-8xl font-light text-third"
-        variants={boxVariant}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 1.2 }}
       >
-        Full Stack Developer<span className="text-third"></span>
-      </motion.div>
+        Full Stack Developer
+      </FadeIn>
       <div className="paragraph">
-        <motion.div
-          variants={boxVariant}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1.45 }}
-        >
+        <FadeIn delay={1.45}>
           I build solid and scalable products with great user experiences.
-        </motion.div>
-        <motion.div
-          variants={boxVariant}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1.6 }}
-        >
-          Software Engineer from Augsburg, Germany.
-        </motion.div>
+        </FadeIn>
+        <FadeIn delay={1.6}>Software Engineer from Augsburg, Germany.</FadeIn>
       </div>
-      <motion.div
-        className=""
-        variants={boxVariant}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 1.75 }}
-      >
-        <a href="https://drive.google.com/file/d/1G20hnKyH7MK09WknB2_moXempDnvvgoO/view?usp=sharing">
-          <button className="button1">Resume</button>
+      <FadeIn delay={1.75}>
+        <a href={RESUME_URL} className="button1 inline-block">
+          Resume
         </a>
-      </motion.div>
-    </div>
+      </FadeIn>
+    </section>
   );
 }
 

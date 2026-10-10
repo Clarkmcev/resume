@@ -1,17 +1,15 @@
-import React from "react";
-import motion1 from "./animation/animation";
 import { motion } from "framer-motion";
+import { fadeIn } from "../animation/variants";
+import SectionHeading from "./SectionHeading";
 
 function Contact() {
   return (
-    <div className="content">
-      <h1>
-        <span className="number">04.</span>Contact
-      </h1>
-      <motion.div
+    <section className="content">
+      <SectionHeading number="04">Contact</SectionHeading>
+      <motion.p
         initial="hidden"
         animate="visible"
-        variants={motion1}
+        variants={fadeIn}
         className="paragraph contact"
       >
         Looking to kick off my career in software development, I'm aiming for a{" "}
@@ -20,13 +18,11 @@ function Contact() {
         high focus on Frontend, to grow within a company and improve my skills.
         I'm therefore open for any opportunities that may come to me. Feel free
         to send me a mail, cheers!
-      </motion.div>
-      <div className="text-center">
-        <a href="mailto:mcevoyclark@gmail.com">
-          <button className="button1 text-center float-left">Contact me</button>
-        </a>
-      </div>
-    </div>
+      </motion.p>
+      <a href="mailto:mcevoyclark@gmail.com" className="button1 inline-block">
+        Contact me
+      </a>
+    </section>
   );
 }
 
