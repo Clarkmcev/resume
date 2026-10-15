@@ -34,14 +34,6 @@ const projects = [
     repo: "https://github.com/Clarkmcev/blogger",
   },
   {
-    name: "Amanda McStudio",
-    shortDescription: "Paintings Gallery",
-    longDescription: "Art gallery.",
-    stack: ["TypeScript", "Vite", "AWS", "TailwindCSS"],
-    url: "https://amanda-mcstudio.com/paintings",
-    repo: "https://github.com/Clarkmcev/cappa",
-  },
-  {
     name: "TikTakTu",
     shortDescription: "Game",
     longDescription: "A simple Tic Tac Toe game.",

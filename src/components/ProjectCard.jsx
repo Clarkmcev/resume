@@ -15,7 +15,11 @@ function ProjectCard({ project, index }) {
       variants={fade}
       className="card group"
     >
-      <a href={url} className="block">
+      {/* the ::after overlay stretches this link over the whole card */}
+      <a
+        href={url}
+        className="block after:absolute after:inset-0 after:rounded-2xl after:content-['']"
+      >
         <div className="text-fourth text-xl group-hover:text-fifth">{name}</div>
         <div className="text-third text-base">[{shortDescription}]</div>
       </a>
@@ -26,10 +30,10 @@ function ProjectCard({ project, index }) {
         ))}
       </div>
       <div className="logos">
-        <a href={repo} aria-label={`${name} source code`}>
+        <a href={repo} aria-label={`${name} source code`} className="relative z-10">
           <BsGithub className="link" />
         </a>
-        <a href={url} aria-label={`${name} live site`}>
+        <a href={url} aria-label={`${name} live site`} className="relative z-10">
           <FaExternalLinkAlt className="link" />
         </a>
       </div>

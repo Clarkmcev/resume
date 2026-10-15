@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { fade } from "../animation/variants";
 
-const RESUME_URL =
-  "https://drive.google.com/file/d/1G20hnKyH7MK09WknB2_moXempDnvvgoO/view?usp=sharing";
+const RESUME_URL = `${process.env.PUBLIC_URL}/ClarkMcEvoy_resume.pdf`;
 
 function FadeIn({ as = "div", delay, className, children }) {
   const Component = motion[as];
@@ -44,7 +43,12 @@ function HomePage() {
         <FadeIn delay={1.6}>Software Engineer from Augsburg, Germany.</FadeIn>
       </div>
       <FadeIn delay={1.75}>
-        <a href={RESUME_URL} className="button1 inline-block">
+        <a
+          href={RESUME_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="button1 inline-block"
+        >
           Resume
         </a>
       </FadeIn>
