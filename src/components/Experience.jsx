@@ -4,13 +4,10 @@ import { fadeIn } from "../animation/variants";
 import experiences from "../data/experiences";
 import SectionHeading from "./SectionHeading";
 
-const activeStyle = { color: "#77ABB7", textDecoration: "none" };
-const inactiveStyle = { textDecoration: "none" };
-
 function Experience() {
   return (
     <section className="content">
-      <SectionHeading number="02">Experience</SectionHeading>
+      <SectionHeading number="03">Experience</SectionHeading>
       <motion.nav
         initial="hidden"
         animate="visible"
@@ -21,8 +18,9 @@ function Experience() {
           <NavLink
             key={id}
             to={id}
-            className="xpitem"
-            style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+            className={({ isActive }) =>
+              `xpitem ${isActive ? "xpitem-active" : ""}`
+            }
           >
             {company}
           </NavLink>

@@ -15,20 +15,16 @@ function ProjectCard({ project, index }) {
       variants={fade}
       className="card group"
     >
-      <a href={url}>
-        <div className="text-fourth mt-5 mx-5 text-xl group-hover:text-white">
-          {name}
-        </div>
-        <div className="mx-5 text-third text-base">[{shortDescription}]</div>
-        <p className="m-5 text-sm h-10">{longDescription}</p>
-        <div className="m-5 flex space-x-3">
-          {stack.map((tech) => (
-            <span key={tech} className="text-third text-sm leading-10">
-              {tech}
-            </span>
-          ))}
-        </div>
+      <a href={url} className="block">
+        <div className="text-fourth text-xl group-hover:text-fifth">{name}</div>
+        <div className="text-third text-base">[{shortDescription}]</div>
       </a>
+      <p className="text-sm my-4 flex-1">{longDescription}</p>
+      <div className="flex flex-wrap gap-x-3 text-third text-sm">
+        {stack.map((tech) => (
+          <span key={tech}>{tech}</span>
+        ))}
+      </div>
       <div className="logos">
         <a href={repo} aria-label={`${name} source code`}>
           <BsGithub className="link" />

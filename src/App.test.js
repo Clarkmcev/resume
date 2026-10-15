@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 import App from "./App";
+import { store } from "./store/store";
 
 beforeEach(() => {
   window.matchMedia = jest.fn().mockReturnValue({
@@ -18,9 +20,11 @@ beforeEach(() => {
 
 const renderAt = (path) =>
   render(
-    <MemoryRouter initialEntries={[path]}>
-      <App />
-    </MemoryRouter>
+    <Provider store={store}>
+      <MemoryRouter initialEntries={[path]}>
+        <App />
+      </MemoryRouter>
+    </Provider>
   );
 
 test("renders the home page", () => {

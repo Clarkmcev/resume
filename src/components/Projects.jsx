@@ -4,8 +4,8 @@ import SectionHeading from "./SectionHeading";
 
 function Projects() {
   return (
-    <section className="content mb-40 pr-20">
-      <SectionHeading number="03">My projects</SectionHeading>
+    <section className="content">
+      <SectionHeading number="04">My projects</SectionHeading>
       <div className="projects">
         {projects.map((project, index) => (
           <ProjectCard key={project.name} project={project} index={index} />

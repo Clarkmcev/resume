@@ -2,23 +2,30 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../animation/variants";
 import SectionHeading from "./SectionHeading";
 
+// listed row by row to fill a 2- or 3-column grid
 const technologies = [
-  ["TypeScript", "Golang", "Python"],
-  ["TailwindCSS", "PostgreSQL", "HTML/CSS"],
-  ["AWS", "Linux", "React/Next/Vite"],
+  "TypeScript",
+  "TailwindCSS",
+  "AWS",
+  "Golang",
+  "PostgreSQL",
+  "Linux",
+  "Python",
+  "HTML/CSS",
+  "React/Next/Vite",
 ];
 
 function About() {
   return (
     <section className="content">
-      <SectionHeading number="01">About me</SectionHeading>
+      <SectionHeading number="02">About me</SectionHeading>
       <motion.div
         initial="hidden"
         animate="visible"
         variants={fadeIn}
-        className="flex items-center space-x-10"
+        className="max-w-2xl"
       >
-        <div className="max-w-xl flex-1 flex flex-col space-y-4">
+        <div className="flex flex-col space-y-4">
           <p className="pt-10">
             Hi there, I'm Clark, I'm a Software Engineer excited about building
             and creating amazing digital products. I am a dedicated Full Stack
@@ -31,18 +38,14 @@ function About() {
             deliver robust and efficient solutions.
           </p>
           <div>
-            <p className="pb-2">
+            <p className="pb-3">
               The technologies I've been recently working with:
             </p>
-            <div className="px-5 flex space-x-10">
-              {technologies.map((column) => (
-                <ul key={column[0]}>
-                  {column.map((tech) => (
-                    <li key={tech}>{tech}</li>
-                  ))}
-                </ul>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-1 pl-5">
+              {technologies.map((tech) => (
+                <li key={tech}>{tech}</li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </motion.div>

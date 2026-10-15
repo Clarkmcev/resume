@@ -2,9 +2,103 @@
 @tailwind components;
 @tailwind utilities;
 
+/* theme palettes (RGB channels so Tailwind opacity modifiers keep working).
+   Selectors aren't limited to :root so the theme picker can preview a palette
+   on any element. Keep ids in sync with src/themes.js. */
+:root,
+[data-theme="dark"] {
+  --color-first: 29 62 83; /* #1D3E53 */
+  --color-second: 37 75 98; /* #254B62 */
+  --color-third: 110 154 171; /* #6E9AAB */
+  --color-fourth: 143 192 203; /* #8FC0CB */
+  --color-fifth: 255 255 255; /* #FFFFFF */
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --color-first: 245 248 250; /* #F5F8FA */
+  --color-second: 225 234 239; /* #E1EAEF */
+  --color-third: 79 115 131; /* #4F7383 */
+  --color-fourth: 37 75 98; /* #254B62 */
+  --color-fifth: 13 31 43; /* #0D1F2B */
+  color-scheme: light;
+}
+
+[data-theme="nord"] {
+  --color-first: 46 52 64; /* #2E3440 */
+  --color-second: 59 66 82; /* #3B4252 */
+  --color-third: 136 192 208; /* #88C0D0 */
+  --color-fourth: 216 222 233; /* #D8DEE9 */
+  --color-fifth: 236 239 244; /* #ECEFF4 */
+  color-scheme: dark;
+}
+
+[data-theme="dracula"] {
+  --color-first: 40 42 54; /* #282A36 */
+  --color-second: 68 71 90; /* #44475A */
+  --color-third: 189 147 249; /* #BD93F9 */
+  --color-fourth: 214 214 229; /* #D6D6E5 */
+  --color-fifth: 255 255 255; /* #FFFFFF */
+  color-scheme: dark;
+}
+
+[data-theme="gruvbox"] {
+  --color-first: 40 40 40; /* #282828 */
+  --color-second: 60 56 54; /* #3C3836 */
+  --color-third: 215 153 33; /* #D79921 */
+  --color-fourth: 235 219 178; /* #EBDBB2 */
+  --color-fifth: 251 241 199; /* #FBF1C7 */
+  color-scheme: dark;
+}
+
+[data-theme="solarized"] {
+  --color-first: 253 246 227; /* #FDF6E3 */
+  --color-second: 238 232 213; /* #EEE8D5 */
+  --color-third: 32 115 176; /* #2073B0 */
+  --color-fourth: 79 100 107; /* #4F646B */
+  --color-fifth: 7 54 66; /* #073642 */
+  color-scheme: light;
+}
+
+[data-theme="forest"] {
+  --color-first: 23 38 29; /* #17261D */
+  --color-second: 33 54 41; /* #213629 */
+  --color-third: 127 176 142; /* #7FB08E */
+  --color-fourth: 184 216 192; /* #B8D8C0 */
+  --color-fifth: 240 247 241; /* #F0F7F1 */
+  color-scheme: dark;
+}
+
+[data-theme="rose"] {
+  --color-first: 255 245 246; /* #FFF5F6 */
+  --color-second: 251 227 231; /* #FBE3E7 */
+  --color-third: 184 63 91; /* #B83F5B */
+  --color-fourth: 107 47 58; /* #6B2F3A */
+  --color-fifth: 58 18 27; /* #3A121B */
+  color-scheme: light;
+}
+
+[data-theme="synthwave"] {
+  --color-first: 26 16 51; /* #1A1033 */
+  --color-second: 42 27 77; /* #2A1B4D */
+  --color-third: 240 98 192; /* #F062C0 */
+  --color-fourth: 200 182 255; /* #C8B6FF */
+  --color-fifth: 255 255 255; /* #FFFFFF */
+  color-scheme: dark;
+}
+
+[data-theme="sepia"] {
+  --color-first: 244 236 216; /* #F4ECD8 */
+  --color-second: 232 220 192; /* #E8DCC0 */
+  --color-third: 138 90 43; /* #8A5A2B */
+  --color-fourth: 78 59 42; /* #4E3B2A */
+  --color-fifth: 43 30 20; /* #2B1E14 */
+  color-scheme: light;
+}
+
 @layer components {
   body {
-    @apply bg-first text-fourth text-base;
+    @apply bg-first text-fourth text-base transition-colors duration-300;
   }
 
   .selection {
@@ -19,17 +113,9 @@
     @apply hover:text-fifth text-fourth transition-all duration-150 hover:-translate-y-1;
   }
 
-  .container {
-    @apply flex justify-between max-w-7xl mx-auto items-center;
-  }
-
-  .menu {
-    @apply my-10 text-third items-center;
-  }
-
   /* global scope */
   h1 {
-    @apply text-3xl text-white;
+    @apply text-3xl text-fifth;
   }
 
   .number {
@@ -43,12 +129,12 @@
 
   /* ref */
   .ref {
-    @apply text-white hover:underline;
+    @apply text-fifth hover:underline;
   }
 
   /* home page */
   .content {
-    @apply max-w-7xl w-full mb-20;
+    @apply w-full;
   }
 
   .paragraph {
@@ -78,15 +164,19 @@
   }
 
   .company {
-    @apply text-white;
+    @apply text-fifth;
   }
 
   .navbarxp {
-    @apply my-10;
+    @apply my-8 flex flex-wrap gap-2 border-b border-second pb-3;
   }
 
   .xpitem {
-    @apply text-third hover:bg-second p-2 rounded-md;
+    @apply text-third hover:bg-second hover:text-fourth px-3 py-2 rounded-md transition-colors;
+  }
+
+  .xpitem-active {
+    @apply bg-second text-fourth;
   }
 
   .date {
@@ -95,15 +185,15 @@
 
   /* project */
   .projects {
-    @apply mt-10 flex flex-wrap;
+    @apply mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3;
   }
 
   .card {
-    @apply bg-second w-72 m-2 rounded-2xl relative hover:-translate-y-2 h-fit border-r-4 border-b-4 border-third duration-500 drop-shadow-md transition-all;
+    @apply bg-second p-6 rounded-2xl flex flex-col hover:-translate-y-2 border-r-4 border-b-4 border-third duration-500 drop-shadow-md transition-all;
   }
 
   .logos {
-    @apply m-5 flex space-x-4 text-third;
+    @apply mt-5 flex space-x-4 text-third;
   }
 
   .box {
@@ -131,7 +221,7 @@ li {
 }
 
 li::before {
-  color: white;
+  color: rgb(var(--color-fifth));
   /*bullet color*/
   content: "\2023";
   /* bullet char */
@@ -144,4 +234,61 @@ line {
   stroke-width: 10px;
   stroke-linecap: round;
   fill: transparent;
+}
+
+.theme-option::before {
+  content: none;
+}
+
+/* Sidebar tooltips open to the left of the icon; below 1400px the sidebar is
+   too close to the window edge, so they open to the right instead. */
+.sidebar-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-left: 1rem;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-0.25rem, -50%);
+  transition: opacity 150ms, transform 150ms;
+}
+
+.group:hover .sidebar-tooltip,
+.group:focus-visible .sidebar-tooltip {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+/* arrow pointing at the icon */
+.sidebar-tooltip::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: -0.25rem;
+  background: rgb(var(--color-second));
+  border: solid rgb(var(--color-third) / 0.3);
+  border-width: 0 0 1px 1px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+@media (min-width: 1400px) {
+  .sidebar-tooltip {
+    left: auto;
+    right: 100%;
+    margin-left: 0;
+    margin-right: 1rem;
+    transform: translate(0.25rem, -50%);
+  }
+
+  .sidebar-tooltip::before {
+    right: auto;
+    left: 100%;
+    margin-right: 0;
+    margin-left: -0.25rem;
+    border-width: 1px 1px 0 0;
+  }
 }

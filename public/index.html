@@ -10,6 +10,19 @@
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>Clark McEvoy</title>
+  <script>
+    // Apply the saved/system theme before React mounts to avoid a flash
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem("theme"); } catch (e) {}
+      // keep in sync with src/themes.js
+      var themes = ["dark", "light", "nord", "dracula", "gruvbox", "solarized", "forest", "rose", "synthwave", "sepia"];
+      if (themes.indexOf(theme) === -1) {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
 </head>
 
 <body>

@@ -6,20 +6,18 @@ import AppRoutes from "./components/AppRoutes";
 
 function App() {
   return (
-    <>
-      <div className="max-h-screen overflow-hidden">
-        <NavBar />
-        <div className="grid grid-cols-10 gap-1">
-          <div className="hidden md:inline-block md:col-span-2 w-full h-screen py-20">
-            <SideBar />
-          </div>
-          <main className="col-span-8 w-screen h-screen md:py-4 overflow-scroll max-h-screen mx-10 md:mx-0">
-            <AppRoutes />
-          </main>
-        </div>
+    <div className="min-h-screen flex flex-col">
+      <NavBar />
+      <div className="flex flex-1 w-full max-w-7xl mx-auto">
+        <aside className="hidden md:block w-24 shrink-0">
+          <SideBar />
+        </aside>
+        <main className="flex-1 min-w-0 px-6 sm:px-10 md:pl-6 md:pr-12 py-10 md:py-16">
+          <AppRoutes />
+        </main>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

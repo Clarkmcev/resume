@@ -21,20 +21,23 @@ function FadeIn({ as = "div", delay, className, children }) {
 
 function HomePage() {
   return (
-    <section className="max-w-7xl p-10 mb-20">
+    <section className="flex flex-col justify-center min-h-[60vh]">
       <FadeIn as="p" delay={0.9} className="text-third">
         Greetings passenger, my name is
       </FadeIn>
-      <FadeIn delay={1.05} className="text-5xl sm:text-8xl font-bold">
+      <FadeIn
+        delay={1.05}
+        className="text-5xl sm:text-7xl lg:text-8xl font-bold text-fifth mt-2"
+      >
         Clark McEvoy<span className="text-third">.</span>
       </FadeIn>
       <FadeIn
         delay={1.2}
-        className="text-6xl lg:text-8xl font-light text-third"
+        className="text-4xl sm:text-6xl lg:text-7xl font-light text-third mt-2"
       >
         Full Stack Developer
       </FadeIn>
-      <div className="paragraph">
+      <div className="paragraph max-w-xl">
         <FadeIn delay={1.45}>
           I build solid and scalable products with great user experiences.
         </FadeIn>

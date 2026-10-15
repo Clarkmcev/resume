@@ -4,11 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        first: "#1D3E53",
-        second: "#254B62",
-        third: "#476D7C",
-        fourth: "#77ABB7",
-        fifth: "#ffffff",
+        // Values live in src/App.css so they can switch with the theme
+        first: "rgb(var(--color-first) / <alpha-value>)",
+        second: "rgb(var(--color-second) / <alpha-value>)",
+        third: "rgb(var(--color-third) / <alpha-value>)",
+        fourth: "rgb(var(--color-fourth) / <alpha-value>)",
+        fifth: "rgb(var(--color-fifth) / <alpha-value>)",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
