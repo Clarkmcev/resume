@@ -19,10 +19,15 @@ export const themeSlice = createSlice({
   name: 'theme',
   initialState: {
     mode: getInitialTheme(),
+    // true while the theme picker is hovered or open; hides the wave background
+    pickerActive: false,
   },
   reducers: {
     setTheme: (state, action) => {
       if (isTheme(action.payload)) state.mode = action.payload;
+    },
+    setPickerActive: (state, action) => {
+      state.pickerActive = action.payload;
     },
   },
 });
@@ -36,6 +41,6 @@ export const applyTheme = (mode) => {
   }
 };
 
-export const { setTheme } = themeSlice.actions;
+export const { setTheme, setPickerActive } = themeSlice.actions;
 
 export default themeSlice.reducer;

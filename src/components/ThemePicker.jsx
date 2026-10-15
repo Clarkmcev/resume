@@ -2,12 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import themes from "../themes";
-import { applyTheme, setTheme } from "../store/themeSlice";
+import { applyTheme, setPickerActive, setTheme } from "../store/themeSlice";
 
 function ThemePicker({ className = "" }) {
   const mode = useSelector((state) => state.theme.mode);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const rootRef = useRef(null);
   const buttonRef = useRef(null);
   const optionRefs = useRef([]);
@@ -15,6 +16,21 @@ function ThemePicker({ className = "" }) {
   useEffect(() => {
     applyTheme(mode);
   }, [mode]);
+
+  // Track hover with pointerover on the document rather than mouseleave: when
+  // an option is picked the menu unmounts under the pointer and no leave event
+  // fires, which left the background hidden
+  useEffect(() => {
+    const handleOver = (e) =>
+      setHovered(Boolean(rootRef.current?.contains(e.target)));
+    document.addEventListener("pointerover", handleOver);
+    return () => document.removeEventListener("pointerover", handleOver);
+  }, []);
+
+  const active = open || hovered;
+  useEffect(() => {
+    dispatch(setPickerActive(active));
+  }, [active, dispatch]);
 
   // Close on outside click
   useEffect(() => {
