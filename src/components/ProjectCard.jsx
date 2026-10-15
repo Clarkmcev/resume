@@ -3,13 +3,13 @@ import { BsGithub } from "react-icons/bs";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { fade } from "../animation/variants";
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, initial }) {
   const { name, shortDescription, longDescription, stack, url, repo } =
     project;
 
   return (
     <motion.article
-      initial="hidden"
+      initial={initial}
       animate="visible"
       transition={{ duration: 0.1, delay: 0.1 * index }}
       variants={fade}

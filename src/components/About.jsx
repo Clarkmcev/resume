@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeIn } from "../animation/variants";
+import useAnimateOnce from "../hooks/useAnimateOnce";
 import SectionHeading from "./SectionHeading";
 
 // listed row by row to fill a 2- or 3-column grid
@@ -16,11 +17,13 @@ const technologies = [
 ];
 
 function About() {
+  const initial = useAnimateOnce("about");
+
   return (
     <section className="content">
       <SectionHeading number="02">About me</SectionHeading>
       <motion.div
-        initial="hidden"
+        initial={initial}
         animate="visible"
         variants={fadeIn}
         className="max-w-2xl"

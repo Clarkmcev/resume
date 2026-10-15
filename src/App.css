@@ -122,6 +122,13 @@
     @apply font-pixel text-sm text-fifth;
   }
 
+  /* current section's number, in the navbar and in the page heading. The
+     pixel font leaves ~5px of empty space under its digits, so the padding is
+     shifted to the top to look even on all sides. */
+  .number-active {
+    @apply bg-fourth text-first rounded px-1 pt-[5px] pb-0 leading-none transition-colors duration-300;
+  }
+
   /* buttons */
   .button1 {
     @apply bg-second p-5 rounded-xl hover:bg-fourth duration-300 transition-all text-fourth hover:text-first border-third border-2;
@@ -290,5 +297,35 @@ line {
     margin-right: 0;
     margin-left: -0.25rem;
     border-width: 1px 1px 0 0;
+  }
+}
+
+/* A quick wiggle when a section is selected (see NavBar.jsx, SectionHeading.jsx) */
+.jingle {
+  display: inline-block;
+  animation: jingle 450ms ease-in-out;
+}
+
+@keyframes jingle {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+  25% {
+    transform: rotate(-6deg) scale(1.08);
+  }
+  50% {
+    transform: rotate(4deg) scale(1.06);
+  }
+  75% {
+    transform: rotate(-2deg) scale(1.03);
+  }
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jingle {
+    animation: none;
   }
 }
