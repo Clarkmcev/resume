@@ -1,12 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { isTheme } from '../themes';
+import { isTheme, isUnlocked, themeById } from '../themes';
+import { loadBestScore } from './runnerSlice';
 
 const STORAGE_KEY = 'theme';
 
 const getInitialTheme = () => {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (isTheme(stored)) return stored;
+    // a locked theme can't be restored, e.g. after clearing the high score
+    if (isTheme(stored) && isUnlocked(themeById(stored), loadBestScore())) {
+      return stored;
+    }
   } catch (e) {
     // localStorage unavailable, fall back to system preference
   }

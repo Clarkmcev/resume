@@ -178,12 +178,18 @@
     @apply my-8 flex flex-wrap gap-2 border-b border-second pb-3;
   }
 
+  /* isolate keeps the highlight's -z-10 behind the label but inside the tab */
   .xpitem {
-    @apply text-third hover:bg-second hover:text-fourth px-3 py-2 rounded-md transition-colors;
+    @apply relative isolate text-third hover:bg-second/60 hover:text-fourth px-3 py-2 rounded-md transition-colors;
   }
 
   .xpitem-active {
-    @apply bg-second text-fourth;
+    @apply text-fourth hover:bg-transparent;
+  }
+
+  /* shared between the tabs; framer-motion slides it to the active one */
+  .xpitem-highlight {
+    @apply absolute inset-0 -z-10 rounded-md bg-second;
   }
 
   .date {
@@ -195,8 +201,14 @@
     @apply mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3;
   }
 
+  /* faint outline with a thick accent edge; the whole border lights up on
+     hover or keyboard focus */
   .card {
-    @apply relative cursor-pointer bg-second p-6 rounded-2xl flex flex-col hover:-translate-y-2 border-r-4 border-b-4 border-third duration-500 drop-shadow-md transition-all;
+    @apply relative cursor-pointer bg-second p-6 rounded-2xl flex flex-col drop-shadow-md
+      border border-r-4 border-b-4 border-third/25 border-r-third border-b-third
+      hover:-translate-y-2 hover:border-fourth/70 hover:border-r-fourth hover:border-b-fourth
+      focus-within:-translate-y-2 focus-within:border-fourth/70 focus-within:border-r-fourth focus-within:border-b-fourth;
+    transition: transform 500ms, border-color 200ms;
   }
 
   .logos {
@@ -241,6 +253,25 @@ line {
   stroke-width: 10px;
   stroke-linecap: round;
   fill: transparent;
+}
+
+/* About: technologies nudge sideways and light their bullet on hover.
+   `translate` rather than `transform`, which framer-motion owns here. */
+.tech {
+  transition: translate 200ms ease-out, color 200ms ease-out;
+}
+
+.tech::before {
+  transition: color 200ms ease-out;
+}
+
+.tech:hover {
+  translate: 4px 0;
+  color: rgb(var(--color-fifth));
+}
+
+.tech:hover::before {
+  color: rgb(var(--color-third));
 }
 
 .theme-option::before {

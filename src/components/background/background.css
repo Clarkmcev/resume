@@ -442,6 +442,500 @@
   box-shadow: 0 0 4px currentColor;
 }
 
+/* Side scenes (SideScene.jsx): the strip between the window's left edge and
+   the sidebar, only on screens wide enough to leave one (the page column is
+   max-w-7xl, 80rem). It reaches 1rem into the sidebar column and fades out
+   toward the icons. --bg-h feeds the Drift travel distance. */
+.side-bg {
+  --bg-h: calc(100vh - 5rem);
+  position: fixed;
+  left: 0;
+  top: 5rem;
+  bottom: 0;
+  z-index: -1;
+  display: none;
+  width: min(360px, calc((100vw - 80rem) / 2 + 1rem));
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, #000 55%, transparent),
+    linear-gradient(transparent, #000 6%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, #000 55%, transparent),
+    linear-gradient(transparent, #000 6%);
+  mask-composite: intersect;
+  transition: opacity 400ms ease-out;
+}
+
+@media (min-width: 1440px) {
+  .side-bg {
+    display: block;
+  }
+}
+
+.side-glow {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(currentColor, transparent 70%);
+  animation: side-flicker 4s ease-in-out infinite alternate;
+}
+
+@keyframes side-flicker {
+  from {
+    opacity: 0.12;
+  }
+  to {
+    opacity: 0.22;
+  }
+}
+
+/* kelp, vines, garland: sway around their anchored end */
+.side-strand {
+  position: absolute;
+  opacity: 0.3;
+  animation: side-sway var(--dur) ease-in-out var(--delay) infinite alternate;
+}
+
+.side-strand svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: currentColor;
+}
+
+.side-strand path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.side-strand-bottom {
+  bottom: -2%;
+  transform-origin: bottom center;
+}
+
+.side-strand-top {
+  top: -2%;
+  transform-origin: top center;
+}
+
+@keyframes side-sway {
+  from {
+    transform: rotate(-4deg);
+  }
+  to {
+    transform: rotate(4deg);
+  }
+}
+
+/* Ocean */
+.side-strand-bottom path {
+  stroke-width: 5;
+}
+
+.side-bubble {
+  display: block;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+}
+
+/* Mist */
+.side-lamp {
+  position: absolute;
+  left: 15%;
+  bottom: 0;
+  width: auto;
+  height: 55%;
+  opacity: 0.22;
+}
+
+/* centred on the lamp head */
+.side-lamp-glow {
+  left: 72%;
+  top: 50%;
+  width: 70%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+}
+
+/* Nord */
+.side-icicles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  fill: currentColor;
+  opacity: 0.35;
+}
+
+.side-drip {
+  position: absolute;
+  width: 3px;
+  height: 5px;
+  border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+  background: currentColor;
+  opacity: 0;
+  animation: side-drip var(--dur) ease-in var(--delay) infinite;
+}
+
+@keyframes side-drip {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translateY(0) scale(0.4);
+  }
+  60% {
+    opacity: 0.7;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(45vh);
+  }
+}
+
+/* Dracula */
+.side-web {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 60%;
+  height: auto;
+  opacity: 0.18;
+}
+
+.side-spider {
+  position: absolute;
+  left: 60%;
+  bottom: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  animation: side-spider 9s ease-in-out infinite alternate;
+}
+
+.side-thread {
+  flex: 1;
+  width: 1px;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+/* the icon brings its own short thread; nudge it up to meet ours */
+.side-spider-body {
+  width: 34px;
+  height: 34px;
+  margin-top: -6px;
+  opacity: 0.55;
+}
+
+@keyframes side-spider {
+  0%,
+  15% {
+    transform: translateY(18vh);
+  }
+  55% {
+    transform: translateY(42vh);
+  }
+  70% {
+    transform: translateY(38vh);
+  }
+  100% {
+    transform: translateY(46vh);
+  }
+}
+
+/* Gruvbox */
+.side-pipe {
+  position: absolute;
+  left: 30%;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  border-inline: 2px solid currentColor;
+  background: rgb(var(--color-fourth) / 0.06);
+  opacity: 0.3;
+}
+
+.side-pipe-joint {
+  position: absolute;
+  left: -6px;
+  right: -6px;
+  height: 12px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+}
+
+.side-gauge {
+  position: absolute;
+  left: calc(30% - 12px);
+  top: 30%;
+  width: 38px;
+  height: 38px;
+  opacity: 0.4;
+  fill: rgb(var(--color-first));
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+.side-gauge-needle {
+  stroke-linecap: round;
+  transform-origin: 0 0;
+  animation: side-needle 2.6s ease-in-out infinite;
+}
+
+@keyframes side-needle {
+  0% {
+    transform: rotate(-40deg);
+  }
+  40% {
+    transform: rotate(25deg);
+  }
+  45% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(-40deg);
+  }
+}
+
+/* steam leaking from the middle joint */
+.side-steam {
+  left: calc(30% - 12px);
+  bottom: 54%;
+  width: 40px;
+  height: 22%;
+}
+
+/* Solarized */
+.side-sunflower {
+  position: absolute;
+  bottom: -2%;
+  width: auto;
+  opacity: 0.25;
+  transform-origin: bottom center;
+  animation: side-sway var(--dur) ease-in-out var(--delay) infinite alternate;
+}
+
+/* Rosé */
+.side-rose {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+}
+
+/* Synthwave */
+.side-palm {
+  position: absolute;
+  left: -10%;
+  bottom: -2%;
+  width: auto;
+  height: 55%;
+  opacity: 0.35;
+  filter: drop-shadow(0 0 6px currentColor);
+  transform-origin: bottom center;
+  animation: side-sway 6s ease-in-out infinite alternate;
+}
+
+/* Sepia */
+.side-lantern {
+  position: absolute;
+  left: 45%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  animation: side-swing 5s ease-in-out infinite alternate;
+}
+
+.side-chain {
+  width: 0;
+  height: 22vh;
+  border-left: 2px dotted currentColor;
+  opacity: 0.4;
+}
+
+.side-lantern-body {
+  width: 54px;
+  height: 54px;
+  opacity: 0.45;
+}
+
+.side-lantern-glow {
+  top: calc(22vh - 60px);
+  width: 160px;
+  height: 160px;
+}
+
+@keyframes side-swing {
+  from {
+    transform: rotate(-6deg);
+  }
+  to {
+    transform: rotate(6deg);
+  }
+}
+
+/* Pointer reveal: a pattern across the whole page, visible only in a
+   spotlight that follows the pointer (--px / --py, set in
+   ThemeBackground.jsx). Each theme draws its own pattern with --line (the
+   theme's accent at --line-a opacity); the ones tied to a scene are anchored
+   where that scene sits, so the pointer uncovers one fixed picture. Fades out
+   when the pointer leaves the page. */
+.pointer-grid {
+  --px: 50vw;
+  --py: 50vh;
+  --reveal: 220px;
+  --line-a: 0.45;
+  --line: rgb(var(--color-third) / var(--line-a));
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-mask-image: radial-gradient(
+    circle var(--reveal) at var(--px) var(--py),
+    #000,
+    rgb(0 0 0 / 0.35) 40%,
+    transparent
+  );
+  mask-image: radial-gradient(
+    circle var(--reveal) at var(--px) var(--py),
+    #000,
+    rgb(0 0 0 / 0.35) 40%,
+    transparent
+  );
+  transition: opacity 400ms ease-out;
+}
+
+/* soft glow pooling under the pointer */
+.pointer-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle var(--reveal) at var(--px) var(--py),
+    rgb(var(--color-third) / 0.1),
+    transparent
+  );
+}
+
+.pointer-grid-on {
+  opacity: 1;
+}
+
+/* the picker fade still wins while the pattern is on */
+.pointer-grid.theme-bg-hidden {
+  opacity: 0;
+}
+
+/* Dark: sonar rings spreading from the waves in the corner */
+.pointer-grid-dark {
+  background-image: repeating-radial-gradient(
+    circle at 100% 100%,
+    transparent 0 38px,
+    var(--line) 38px 39.5px
+  );
+}
+
+/* Light: dotted drafting paper */
+.pointer-grid-light {
+  --line-a: 0.5;
+  background-image: radial-gradient(circle, var(--line) 1.2px, transparent 1.8px);
+  background-size: 22px 22px;
+}
+
+/* Nord: a frost lattice of lines at 0, 60 and 120 degrees */
+.pointer-grid-nord {
+  --line-a: 0.35;
+  background-image: repeating-linear-gradient(0deg, var(--line) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(60deg, var(--line) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(120deg, var(--line) 0 1px, transparent 1px 36px);
+}
+
+/* Dracula: a spiderweb strung in the top-left corner, away from the bats */
+.pointer-grid-dracula {
+  background-image: repeating-conic-gradient(
+      from 90deg at 0 0,
+      var(--line) 0 0.15deg,
+      transparent 0.15deg 7.5deg
+    ),
+    repeating-radial-gradient(circle at 0 0, transparent 0 56px, var(--line) 56px 57px);
+}
+
+/* Gruvbox: a workshop blueprint, fine squares inside heavier ones */
+.pointer-grid-gruvbox {
+  --line-a: 0.4;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    linear-gradient(rgb(var(--color-third) / 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--color-third) / 0.15) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+}
+
+/* Solarized: sun rays fanning out from the sun in the corner */
+.pointer-grid-solarized {
+  --line-a: 0.12;
+  background-image: repeating-conic-gradient(
+    at 100% 100%,
+    var(--line) 0 1.5deg,
+    transparent 1.5deg 6deg
+  );
+}
+
+/* Forest: a garden trellis */
+.pointer-grid-forest {
+  --line-a: 0.4;
+  background-image: repeating-linear-gradient(45deg, var(--line) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(-45deg, var(--line) 0 1px, transparent 1px 34px);
+}
+
+/* Rosé: staggered polka dots */
+.pointer-grid-rose {
+  --line-a: 0.3;
+  background-image: radial-gradient(circle, var(--line) 3px, transparent 3.5px),
+    radial-gradient(circle, var(--line) 3px, transparent 3.5px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Synthwave: a neon grid; a bright 1px core with a soft falloff reads as a
+   glow without a filter repainting the whole screen on every move */
+.pointer-grid-synthwave {
+  --line-a: 0.7;
+  background-image: linear-gradient(
+      var(--line) 1px,
+      rgb(var(--color-third) / 0.15) 1px,
+      transparent 4px
+    ),
+    linear-gradient(90deg, var(--line) 1px, rgb(var(--color-third) / 0.15) 1px, transparent 4px);
+  background-size: 48px 48px;
+  background-position: -1px -1px;
+}
+
+/* Sepia: a ruled ledger page with a double margin line */
+.pointer-grid-sepia {
+  --line-a: 0.35;
+  background-image: linear-gradient(
+      90deg,
+      transparent 72px,
+      var(--line) 72px 73px,
+      transparent 73px 76px,
+      var(--line) 76px 77px,
+      transparent 77px
+    ),
+    repeating-linear-gradient(transparent 0 27px, var(--line) 27px 28px);
+}
+
 /* Reduced motion: freeze every scene mid-animation (negative delays leave the
    particles spread out) and skip the mouse-follow transitions */
 @media (prefers-reduced-motion: reduce) {

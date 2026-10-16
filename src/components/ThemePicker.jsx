@@ -1,11 +1,77 @@
 import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
-import themes from "../themes";
+import { BsLockFill } from "react-icons/bs";
+import themes, { isUnlocked } from "../themes";
 import { applyTheme, setPickerActive, setTheme } from "../store/themeSlice";
+
+const TOOLTIP_ID = "theme-lock-tooltip";
+const TOOLTIP_WIDTH = 224;
+
+// Where the tooltip goes: left of the menu, or under the option when there
+// is no room on the left (phones).
+function tooltipPosition(el) {
+  const rect = el.getBoundingClientRect();
+  if (rect.left > TOOLTIP_WIDTH + 24) {
+    return {
+      placement: "left",
+      top: rect.top + rect.height / 2,
+      left: rect.left - TOOLTIP_WIDTH - 12,
+    };
+  }
+  return {
+    placement: "below",
+    top: rect.bottom + 8,
+    left: Math.max(8, rect.right - TOOLTIP_WIDTH),
+  };
+}
+
+// Explains how to unlock a theme, with progress towards it.
+function LockTooltip({ theme, best, position }) {
+  const progress = Math.min(1, best / theme.unlockAt);
+  return createPortal(
+    <div
+      id={TOOLTIP_ID}
+      role="tooltip"
+      style={{
+        top: position.top,
+        left: position.left,
+        width: TOOLTIP_WIDTH,
+        transform: position.placement === "left" ? "translateY(-50%)" : "none",
+      }}
+      className="fixed z-[60] pointer-events-none rounded-lg border border-third/30 bg-second px-3 py-2.5 text-sm text-fourth shadow-xl"
+    >
+      <p className="flex items-center gap-2 font-semibold text-fifth">
+        <BsLockFill aria-hidden="true" className="text-third" />
+        {theme.label} is locked
+      </p>
+      <p className="mt-1">
+        {theme.unlockHint ??
+          `Score ${theme.unlockAt} points in the runner game on the home page.`}
+      </p>
+      <div
+        className="mt-2 h-1.5 rounded-full bg-first overflow-hidden"
+        aria-hidden="true"
+      >
+        <div
+          className="h-full rounded-full bg-third"
+          style={{ width: `${progress * 100}%` }}
+        />
+      </div>
+      <p className="mt-1 text-xs">
+        Your best: {best} / {theme.unlockAt}
+      </p>
+    </div>,
+    document.body,
+  );
+}
 
 function ThemePicker({ className = "" }) {
   const mode = useSelector((state) => state.theme.mode);
+  const best = useSelector((state) => state.runner.best);
+  // locked theme whose tooltip is showing: { id, ...tooltipPosition }
+  const [tip, setTip] = useState(null);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -50,6 +116,15 @@ function ThemePicker({ className = "" }) {
     }
   }, [open, mode]);
 
+  // the tooltip belongs to the open menu
+  useEffect(() => {
+    if (!open) setTip(null);
+  }, [open]);
+
+  const showTip = (theme, el) =>
+    setTip({ id: theme.id, ...tooltipPosition(el) });
+  const hideTip = () => setTip(null);
+
   const close = () => {
     setOpen(false);
     buttonRef.current?.focus();
@@ -78,10 +153,7 @@ function ThemePicker({ className = "" }) {
   const CurrentIcon = current.Icon;
 
   return (
-    <div
-      ref={rootRef}
-      className={`relative ${className}`}
-    >
+    <div ref={rootRef} className={`relative ${className}`}>
       <button
         ref={buttonRef}
         type="button"
@@ -111,7 +183,22 @@ function ThemePicker({ className = "" }) {
           >
             {themes.map((theme, i) => {
               const selected = theme.id === mode;
+              const locked = !isUnlocked(theme, best);
               const { Icon } = theme;
+              // locked: still focusable so the tooltip can be read, and a
+              // click or tap shows it instead of picking the theme
+              const lockProps = locked && {
+                "aria-disabled": true,
+                "aria-describedby":
+                  tip?.id === theme.id ? TOOLTIP_ID : undefined,
+                onMouseEnter: (e) => showTip(theme, e.currentTarget),
+                onMouseLeave: hideTip,
+                onFocus: (e) => showTip(theme, e.currentTarget),
+                onBlur: hideTip,
+                // show only: a tap fires mouseenter first, toggling would
+                // hide it again straight away
+                onClick: (e) => showTip(theme, e.currentTarget),
+              };
               return (
                 <li key={theme.id} className="theme-option">
                   <button
@@ -120,10 +207,13 @@ function ThemePicker({ className = "" }) {
                     role="option"
                     aria-selected={selected}
                     onClick={() => select(theme.id)}
+                    {...lockProps}
                     className={`group relative w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-third ${
-                      selected
-                        ? "bg-second text-fifth font-semibold"
-                        : "text-fourth hover:bg-second/50 focus-visible:bg-second/50"
+                      locked
+                        ? "text-fourth/40 cursor-not-allowed focus-visible:bg-second/30"
+                        : selected
+                          ? "bg-second text-fifth font-semibold"
+                          : "text-fourth hover:bg-second/50 focus-visible:bg-second/50"
                     }`}
                   >
                     {selected && (
@@ -135,11 +225,27 @@ function ThemePicker({ className = "" }) {
                     <Icon
                       size="20px"
                       aria-hidden="true"
-                      className={`shrink-0 transition-all duration-150 group-hover:text-fifth group-hover:scale-110 group-focus-visible:text-fifth ${
-                        selected ? "text-fifth scale-110" : "text-third"
+                      className={`shrink-0 transition-all duration-150 ${
+                        locked
+                          ? "text-third/40 grayscale"
+                          : `group-hover:text-fifth group-hover:scale-110 group-focus-visible:text-fifth ${
+                              selected ? "text-fifth scale-110" : "text-third"
+                            }`
                       }`}
                     />
                     <span className="flex-1">{theme.label}</span>
+                    {locked && (
+                      <>
+                        <BsLockFill
+                          size="12px"
+                          aria-hidden="true"
+                          className="shrink-0 text-fourth/50"
+                        />
+                        <span className="sr-only">
+                          , locked until {theme.unlockAt} points
+                        </span>
+                      </>
+                    )}
                   </button>
                 </li>
               );
@@ -147,6 +253,13 @@ function ThemePicker({ className = "" }) {
           </motion.ul>
         )}
       </AnimatePresence>
+      {tip && (
+        <LockTooltip
+          theme={themes.find((theme) => theme.id === tip.id)}
+          best={best}
+          position={tip}
+        />
+      )}
     </div>
   );
 }
