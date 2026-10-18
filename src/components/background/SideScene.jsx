@@ -9,6 +9,7 @@ import {
   GiSunflower,
 } from "react-icons/gi";
 import { Drift } from "./parts";
+import Smoke from "./Smoke";
 import { range, seeded } from "./random";
 
 // Small scenes for the empty strip left of the sidebar on wide screens (see
@@ -108,6 +109,8 @@ function Spider() {
   );
 }
 
+const PIPE_STEAM = [{ x: 0.5, amp: 7, reach: 1, width: 3, alpha: 0.3, waves: [1.8, 2.2] }];
+
 // Gruvbox: a steam pipe with a jittery pressure gauge, leaking at a joint
 function Pipe() {
   return (
@@ -121,16 +124,7 @@ function Pipe() {
         <circle r="17" />
         <line x1="0" y1="0" x2="0" y2="-12" className="side-gauge-needle" />
       </svg>
-      {[0, -2.4].map((delay) => (
-        <svg
-          key={delay}
-          viewBox="0 0 60 200"
-          className="steam-wisp side-steam"
-          style={{ "--peak": 0.25, "--dur": "5s", "--delay": `${delay}s` }}
-        >
-          <path d="M30 200 C 5 160, 55 130, 30 95 S 5 30, 30 0" />
-        </svg>
-      ))}
+      <Smoke seed={41} plumes={PIPE_STEAM} blur={3} className="side-steam" />
     </div>
   );
 }
