@@ -1,11 +1,49 @@
+import { useCallback, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
 import Footer from "./components/Footer";
 import AppRoutes from "./components/AppRoutes";
 import ThemeBackground from "./components/background/ThemeBackground";
+import Intro from "./components/Intro";
+
+// The intro plays once per browser session and never for reduced motion
+const INTRO_KEY = "introPlayed";
+
+function shouldPlayIntro() {
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+    return false;
+  }
+  try {
+    return !sessionStorage.getItem(INTRO_KEY);
+  } catch (e) {
+    return true;
+  }
+}
 
 function App() {
+  const [showIntro, setShowIntro] = useState(shouldPlayIntro);
+  const finishIntro = useCallback(() => {
+    try {
+      sessionStorage.setItem(INTRO_KEY, "1");
+    } catch (e) {}
+    setShowIntro(false);
+  }, []);
+
+  return (
+    <>
+      <AnimatePresence>
+        {showIntro && <Intro key="intro" onDone={finishIntro} />}
+      </AnimatePresence>
+      {/* mounted once the intro lifts, so the page's own entrance
+          animations play as it's revealed rather than hidden behind it */}
+      {!showIntro && <Page />}
+    </>
+  );
+}
+
+function Page() {
   return (
     <div className="min-h-screen flex flex-col">
       <ThemeBackground />
