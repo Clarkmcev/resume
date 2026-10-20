@@ -1,5 +1,14 @@
 const projects = [
   {
+    name: "Last Candle",
+    shortDescription: "Multiplayer Game",
+    longDescription:
+      "A social deduction game for 3 to 10 players in a haunted Victorian manor. Survive the night while a hidden Host snuffs out candles and kills in the dark.",
+    stack: ["Go", "TypeScript", "Phaser", "WebSocket"],
+    url: "https://lastcandle.fly.dev/",
+    repo: "https://github.com/Clarkmcev/lastcandle",
+  },
+  {
     name: "Runman",
     shortDescription: "2D Retro Game",
     longDescription:
