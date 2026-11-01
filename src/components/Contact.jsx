@@ -15,12 +15,7 @@ function Contact() {
         variants={fadeIn}
         className="paragraph max-w-2xl"
       >
-        Looking to kick off my career in software development, I'm aiming for a{" "}
-        <span className="text-fifth">Frontend</span> or{" "}
-        <span className="text-fifth">Fullstack</span> Developer position with a
-        high focus on Frontend, to grow within a company and improve my skills.
-        I'm therefore open for any opportunities that may come to me. Feel free
-        to send me a mail, cheers!
+        Want to know more? Don't hesitate to reach out.
       </motion.p>
       <a href="mailto:mcevoyclark@gmail.com" className="button1 inline-block">
         Contact me

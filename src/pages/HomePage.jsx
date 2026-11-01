@@ -41,14 +41,14 @@ function HomePage() {
           delay={1.2}
           className="text-4xl sm:text-6xl lg:text-7xl font-light text-third mt-2"
         >
-          Full Stack Developer
+          Full Stack Enginee
         </FadeIn>
         <div className="paragraph max-w-xl">
           <FadeIn initial={initial} delay={1.45}>
             I build solid and scalable products with great user experiences.
           </FadeIn>
           <FadeIn initial={initial} delay={1.6}>
-            Software Engineer from Augsburg, Germany.
+            from Augsburg, Germany.
           </FadeIn>
         </div>
         <FadeIn initial={initial} delay={1.75}>
