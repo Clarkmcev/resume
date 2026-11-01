@@ -14,6 +14,7 @@ const technologies = [
   "Python",
   "HTML/CSS",
   "React/Next/Vite",
+  "Flutter"
 ];
 
 function About() {
@@ -35,7 +36,7 @@ function About() {
           <motion.p variants={rise} className="pt-10">
             Hi there, I'm Clark, I'm a Software Engineer excited about building
             and creating amazing digital products. I am a dedicated Full Stack
-            developer with over 3 years of experience in designing and
+            Engineer with over 5 years of experience in designing and
             implementing scalable cloud platforms.
           </motion.p>
           <motion.p variants={rise}>
